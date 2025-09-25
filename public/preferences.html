@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Update Preferences - AgriConnect</title>
+  <style>
+    :root {
+      --primary: #1e2a38;
+      --accent: #00796b;
+      --soft: #f5f7fa;
+      --surface: #fff;
+      --radius: 12px;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--soft);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 650px;
+      margin: 40px auto;
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+    h2 {
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+    h3 {
+      color: var(--primary);
+      margin: 20px 0 12px;
+    }
+    .checkbox-group, .toggle-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    input[type="checkbox"], input[type="radio"] {
+      accent-color: var(--accent);
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+    select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+    button {
+      margin-top: 26px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: var(--accent);
+    }
+    .success-message {
+      display: none;
+      margin-top: 18px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Update Your Preferences</h2>
+
+    <!-- Dietary Preferences -->
+    <h3>Dietary Preferences</h3>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="diet" value="Organic">Organic</label>
+      <label><input type="checkbox" name="diet" value="Vegan">Vegan</label>
+      <label><input type="checkbox" name="diet" value="Gluten-Free">Gluten-Free</label>
+      <label><input type="checkbox" name="diet" value="Local">Local Produce</label>
+      <label><input type="checkbox" name="diet" value="Non-GMO">Non-GMO</label>
+    </div>
+
+    <!-- Favorite Categories -->
+    <h3>Favorite Categories</h3>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="category" value="Vegetables">Vegetables</label>
+      <label><input type="checkbox" name="category" value="Fruits">Fruits</label>
+      <label><input type="checkbox" name="category" value="Dairy">Dairy</label>
+      <label><input type="checkbox" name="category" value="Bakery">Bakery</label>
+      <label><input type="checkbox" name="category" value="Herbs">Herbs</label>
+    </div>
+
+    <!-- Delivery Schedule -->
+    <h3>Delivery Schedule</h3>
+    <select id="deliverySchedule">
+      <option value="Weekly">Weekly</option>
+      <option value="Bi-weekly">Bi-weekly</option>
+      <option value="Monthly">Monthly</option>
+      <option value="On-demand">On-demand</option>
+    </select>
+
+    <!-- Notifications -->
+    <h3>Notifications</h3>
+    <div class="toggle-group">
+      <label><input type="checkbox" id="orderUpdates" checked>Order Updates</label>
+      <label><input type="checkbox" id="promoAlerts">Promotional Offers</label>
+      <label><input type="checkbox" id="farmerNews">Farmer News</label>
+    </div>
+
+    <button id="saveBtn">Save Preferences</button>
+    <div class="success-message" id="successMsg">Preferences saved successfully!</div>
+  </div>
+
+  <script>
+    document.getElementById('saveBtn').addEventListener('click', () => {
+      // Collect selected values
+      const diets = Array.from(document.querySelectorAll('input[name="diet"]:checked')).map(cb => cb.value);
+      const categories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => cb.value);
+      const delivery = document.getElementById('deliverySchedule').value;
+      const notifications = {
+        orderUpdates: document.getElementById('orderUpdates').checked,
+        promoAlerts: document.getElementById('promoAlerts').checked,
+        farmerNews: document.getElementById('farmerNews').checked
+      };
+
+      // Save to localStorage or send to server (demo: localStorage)
+      const preferences = { diets, categories, delivery, notifications };
+      localStorage.setItem('userPreferences', JSON.stringify(preferences));
+
+      // Show confirmation message
+      const msg = document.getElementById('successMsg');
+      msg.style.display = 'block';
+      msg.textContent = 'Preferences saved successfully! Redirecting…';
+
+      // Redirect back to dashboard after delay
+      setTimeout(() => {
+        window.location.href = 'consumers.html';
+      }, 1500);
+    });
+
+  // ✅ Save selected preferences
+  document.getElementById('saveBtn').addEventListener('click', () => {
+    const diets = [...document.querySelectorAll('input[name="diet"]:checked')].map(cb => cb.value);
+    const categories = [...document.querySelectorAll('input[name="category"]:checked')].map(cb => cb.value);
+    const delivery = document.getElementById('deliverySchedule').value;
+    const notifications = {
+      orderUpdates: document.getElementById('orderUpdates').checked,
+      promoAlerts: document.getElementById('promoAlerts').checked,
+      farmerNews: document.getElementById('farmerNews').checked
+    };
+
+    const preferences = { diets, categories, delivery, notifications };
+    localStorage.setItem('userPreferences', JSON.stringify(preferences));
+
+    // Small confirmation and redirect back to dashboard
+    alert('Preferences saved successfully!');
+    window.location.href = 'consumers.html#profile';
+  });
+
+  // ✅ Pre-fill checkboxes/dropdowns with saved preferences
+  window.addEventListener('DOMContentLoaded', () => {
+    const saved = JSON.parse(localStorage.getItem('userPreferences') || '{}');
+    (saved.diets || []).forEach(v => {
+      const cb = document.querySelector(`input[name="diet"][value="${v}"]`);
+      if (cb) cb.checked = true;
+    });
+    (saved.categories || []).forEach(v => {
+      const cb = document.querySelector(`input[name="category"][value="${v}"]`);
+      if (cb) cb.checked = true;
+    });
+    if (saved.delivery) document.getElementById('deliverySchedule').value = saved.delivery;
+    if (saved.notifications) {
+      document.getElementById('orderUpdates').checked = saved.notifications.orderUpdates;
+      document.getElementById('promoAlerts').checked = saved.notifications.promoAlerts;
+      document.getElementById('farmerNews').checked = saved.notifications.farmerNews;
+    }
+  });
+
+
+  </script>
+</body>
+</html>

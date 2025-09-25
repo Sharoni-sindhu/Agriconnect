@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenFields - Sign Up</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+  <!-- Signup Form Container -->
+  <div class="login-container">
+    <h1>Create Your Account</h1>
+    <form class="signup-form">
+
+      <!-- Username -->
+      <div class="form-group">
+        <input type="text" name="username" placeholder="👤 Username" required>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <input type="password" name="password" placeholder="🔑 Password" required>
+      </div>
+
+      <!-- Role Selection -->
+      <div class="form-group role-select">
+        <label><input type="radio" name="role" value="buyer" required> Buyer</label>
+        <label><input type="radio" name="role" value="seller" required> Seller</label>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit">Sign Up</button>
+    </form>
+
+
+
+    <p class="redirect">Already have an account? <a href="login.html">Login here</a></p>
+    <p class="redirect"><a href="index.html">⬅️ Back to Home</a></p>
+
+  </div>
+
+  <!-- Celebration popup -->
+  <div class="success-container" id="successMessage">
+    <div class="success-box">
+      <h2>🎉 Signup Successful!</h2>
+      <p>Welcome to GreenFields 🌱. Your account has been created.</p>
+      <button onclick="closeSuccess()">OK</button>
+    </div>
+  </div>
+
+  <script>
+    // Signup form handler
+    document.querySelector(".signup-form").addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch("/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+          document.getElementById("successMessage").classList.add("show");
+          launchConfetti();
+        } else {
+          alert(result.message);
+        }
+      } catch (err) {
+        console.error("❌ Signup error:", err);
+        alert("Server error. Please try again.");
+      }
+    });
+
+    function closeSuccess() {
+      document.getElementById("successMessage").classList.remove("show");
+      window.location.href = "login.html";
+    }
+
+    // Confetti effect
+    function launchConfetti() {
+      const duration = 2 * 1000;
+      const end = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 5,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</body>
+
+</html>
