@@ -2,299 +2,297 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Buy Products</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy Products - Green Fields</title>
   <style>
+    /* ===== COLOR VARIABLES ===== */
+    :root {
+  --primary: #1E8562;   /* greenish */
+  --secondary: #4ABDAC; /* bluish */
+  --accent: #f0f9f5;
+  --surface: #ffffff;
+  --highlight: #1E8562;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --text: #333;
+  --background: #f0f9f5;
+}
+
+
+    /* ===== GENERAL ===== */
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: url("buyers.jpg") no-repeat center center fixed;
-      background-size: cover;
+      font-family: 'Poppins', sans-serif;
+      background: var(--accent);
+      color: #3b2f2f;
       min-height: 100vh;
-    }
-
-    footer {
-      background: #cf730a;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      margin-top: auto;
-    }
-
-    .navbar {
-      background: #cf730a;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    .navbar h1 {
-      margin: 0;
-      font-size: 22px;
-      color: white;
-    }
-
-    .nav-links {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links li {
-      display: inline;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #bbdefb;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 30px;
     }
 
     h2 {
       text-align: center;
-      color: #2e7d32;
-      margin-bottom: 20px;
+      margin: 20px 0;
+      color: var(--primary);
     }
 
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background: var(--primary);
+      color: var(--surface);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 25px;
+      box-shadow: var(--shadow);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 20px;
+      color: var(--secondary);
+    }
+
+    .navbar-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+    }
+
+    .navbar-links a {
+      text-decoration: none;
+      color: var(--surface);
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .navbar-links a:hover {
+      color: var(--secondary);
+    }
+
+    /* ===== SEARCH BOX ===== */
     #searchBox {
-      padding: 12px;
-      width: 100%;
-      border: 1px solid #ccc;
+      padding: 10px;
+      width: 60%;
+      max-width: 400px;
       border-radius: 8px;
-      margin-bottom: 25px;
-      font-size: 16px;
+      border: 1px solid #ccc;
+      transition: 0.2s;
     }
 
+    #searchBox:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 8px rgba(163, 193, 74, 0.4);
+    }
+
+    /* ===== PRODUCT GRID ===== */
+    .product-container,
     #productList {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      padding: 30px 50px;
+      justify-items: center;
     }
 
+    .product-card,
     .product {
-      background: #fff;
+      background: var(--surface);
+      border-radius: 16px;
       padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s;
-      animation: fadeIn 0.6s ease-in;
+      box-shadow: var(--shadow);
+      text-align: center;
+      width: 100%;
+      max-width: 280px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
+    .product-card:hover,
     .product:hover {
-      transform: scale(1.03);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(107, 66, 38, 0.25);
     }
 
     .product h3 {
-      color: #cf730a;
-      margin-top: 0;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .product p {
+      margin: 5px 0;
+      color: #444;
     }
 
     .product img {
-      width: 100%;
-      max-height: 200px;
+      max-width: 100%;
+      max-height: 180px;
       object-fit: cover;
-      border-radius: 10px;
-      margin-top: 10px;
-      transition: transform 0.3s;
+      border-radius: 12px;
+      margin: 10px 0;
     }
 
-    .product img:hover {
-      transform: scale(1.05);
-    }
-
+    /* ===== BUY BUTTON ===== */
     .buy-btn {
-      margin-top: 12px;
-      padding: 10px 15px;
-      background: #cf730a;
+      background: linear-gradient(135deg, var(--secondary), #c7e58f);
+      color: var(--primary);
       border: none;
-      border-radius: 6px;
-      color: white;
-      font-size: 14px;
+      border-radius: 12px;
+      padding: 10px 16px;
+      font-weight: bold;
       cursor: pointer;
-      transition: background 0.3s;
+      width: 100%;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
     }
 
     .buy-btn:hover {
-      background: #1976d2;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+      background: linear-gradient(135deg, #a3c14a, #c7e58f);
+      color: var(--primary);
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .buy-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
     }
 
-    .modal {
+    /* ===== SELLER MODAL ===== */
+    .popup,
+    #sellerModal {
       display: none;
       position: fixed;
-      z-index: 1000;
-      left: 0;
       top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
       justify-content: center;
       align-items: center;
+      z-index: 999;
     }
 
-    .modal-content {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
+    .popup-content,
+    #sellerModalContent {
+      background: var(--surface);
+      padding: 25px;
+      border-radius: 16px;
       width: 350px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      max-width: 90%;
+      text-align: left;
+      box-shadow: var(--shadow);
     }
 
-    .modal-content h3 {
-      color: #cf730a;
-      margin-bottom: 15px;
-    }
-
-    .close-btn {
-      background: #d32f2f;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 6px;
+    .close {
+      float: right;
+      font-size: 22px;
       cursor: pointer;
-      margin-top: 15px;
     }
 
-    .close-btn:hover {
-      background: #b71c1c;
+    /* ===== CONTACT SELLER BUTTONS ===== */
+    #contactButtons .contact-seller {
+      display: inline-block;
+      margin: 5px 5px 5px 0;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--surface);
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    #contactButtons .email-btn {
+      background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+    }
+
+    #contactButtons .call-btn {
+      background: linear-gradient(135deg, #81c784, #a5d6a7);
+    }
+
+    #contactButtons .contact-seller:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+      opacity: 0.95;
+    }
+
+    #contactButtons .contact-seller:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ===== FORM INSIDE POPUP ===== */
+    .popup-content form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .popup-content input {
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
   </style>
 </head>
 
 <body>
-
-  <!-- NAVIGATION BAR -->
+  <!-- ===== NAVBAR ===== -->
   <nav class="navbar">
-    <h1>Green Fields</h1>
-    <ul class="nav-links">
-      <li><a href="farmers.html">Home</a></li>
-      <li><a href="sellers.html">Sell Products</a></li>
-      <li><a href="buyers.html">Buy Products</a></li>
-      <li><a href="orders.html">My Orders</a></li> <!-- ✅ New Orders Page -->
+    <div class="navbar-brand">🌾 Green Fields</div>
+    <ul class="navbar-links">
+      <li><a id="homeLink" href="#">Home</a></li>
+      <li><a href="orders.html">My Orders</a></li>
       <li><a href="logout">Logout</a></li>
     </ul>
-
   </nav>
 
-  <!-- MAIN CONTENT -->
-  <div class="container">
-    <h2>🌾 Available Products</h2>
-    <input type="text" id="searchBox" placeholder="🔍 Search products...">
-    <div id="productList"></div>
+  <h2>Available Products</h2>
+
+  <!-- ===== SEARCH BOX ===== -->
+  <div style="text-align:center; margin:20px;">
+    <input type="text" id="searchBox" placeholder="Search products...">
   </div>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 GreenFields. All Rights Reserved.
-  </footer>
+  <!-- ===== PRODUCT LIST ===== -->
+  <main>
+    <div class="product-container" id="productList"></div>
+  </main>
 
-  <!-- Seller Details Modal -->
-  <div class="modal" id="sellerModal">
-    <div class="modal-content">
-      <h3>Seller Details</h3>
-      <p id="sellerInfo"></p>
-
-      <!-- Action Buttons -->
-      <div id="contactButtons" style="margin-top: 15px;"></div>
-
-      <button class="close-btn" onclick="closeModal()">Close</button>
+  <!-- ===== SELLER MODAL ===== -->
+  <div id="sellerModal">
+    <div id="sellerModalContent">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Seller Info</h2>
+      <div id="sellerInfo"></div>
+      <div id="contactButtons" style="margin-top:15px;"></div>
     </div>
   </div>
 
+  <!-- ===== JAVASCRIPT ===== -->
   <script>
-
-async function saveOrder(productId, productName, sellerName, sellerEmail, sellerPhone, action) {
-  try {
-    const res = await fetch("/orders", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        productName,
-        sellerName,
-        sellerEmail,
-        sellerPhone,
-        action
-      })
-    });
-
-    const data = await res.json();
-    if (res.ok) {
-      console.log("✅ Order saved:", data);
-    } else {
-      console.error("❌ Failed to save order:", data.error);
-    }
-  } catch (err) {
-    console.error("❌ Error in saveOrder:", err);
-  }
-}
-
-async function loadOrders() {
-  try {
-    const res = await fetch("/orders");
-    const orders = await res.json();
-
-    const list = document.getElementById("ordersList");
-    list.innerHTML = "";
-
-    if (!orders.length) {
-      list.innerHTML = "<p style='text-align:center; color:#888;'>No orders yet.</p>";
-      return;
+    async function saveOrder(productId, productName, sellerName, sellerEmail, sellerPhone, action) {
+      try {
+        const res = await fetch("/orders", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ productName, sellerName, sellerEmail, sellerPhone, action })
+        });
+        const data = await res.json();
+        if (res.ok) console.log("✅ Order saved:", data);
+        else console.error("❌ Failed to save order:", data.error);
+      } catch (err) {
+        console.error("❌ Error in saveOrder:", err);
+      }
     }
 
-    orders.forEach(o => {
-      const div = document.createElement("div");
-      div.className = "order";
-      div.innerHTML = `
-        <p><strong>Product:</strong> ${o.productName}</p>
-        <p><strong>Seller:</strong> ${o.sellerName} (${o.sellerEmail}, ${o.sellerPhone})</p>
-        <p><strong>Action:</strong> ${o.action}</p>
-        <p><small>Ordered on: ${new Date(o.createdAt).toLocaleString()}</small></p>
-      `;
-      list.appendChild(div);
-    });
-  } catch (err) {
-    console.error("Error loading orders:", err);
-  }
-}
-
-loadOrders();
-
-
-    // Load products and render product cards
     async function loadProducts() {
       try {
         const res = await fetch("/products");
         const products = await res.json();
         const list = document.getElementById("productList");
-
         list.innerHTML = "";
+
         if (!products.length) {
           list.innerHTML = "<p style='text-align:center; color:#888;'>No products available right now.</p>";
           return;
@@ -303,32 +301,60 @@ loadOrders();
         products.forEach(p => {
           const div = document.createElement("div");
           div.className = "product";
-
           div.innerHTML = `
-  <h3 id="product-name-${p.id}">${p.name}</h3>
-  <p><strong>Price:</strong> ₹${p.price}</p>
-  <p><strong>Quantity:</strong> ${p.quantity}</p>
-  <p><strong>Description:</strong> ${p.description || "N/A"}</p>
-  ${p.image ? `<img src="${p.image}" alt="Product">` : ""}
-  <button class="buy-btn" 
-      data-id="${p.id}"
-      data-name="${p.name}"
-      data-sellername="${p.sellerName || 'Unknown'}" 
-      data-selleremail="${p.sellerEmail || 'Not Provided'}" 
-      data-sellerphone="${p.sellerPhone || 'Not Provided'}"
-  >Contact Seller</button>
-`;
-
+          <h3>${p.name}</h3>
+          <p><strong>Price:</strong> ₹${p.price}</p>
+          <p><strong>Quantity:</strong> ${p.quantity}</p>
+          <p><strong>Description:</strong> ${p.description || "N/A"}</p>
+          ${p.image ? `<img src="${p.image}" alt="Product">` : ""}
+          <button class="buy-btn"
+            data-id="${p._id || p.id}"
+            data-name="${p.name}"
+            data-sellername="${p.sellerName || 'Unknown'}"
+            data-selleremail="${p.sellerEmail || 'Not Provided'}"
+            data-sellerphone="${p.sellerPhone || 'Not Provided'}">
+            Contact Seller
+          </button>
+        `;
           list.appendChild(div);
         });
 
-        // Attach event listeners AFTER rendering
-        document.querySelectorAll('.buy-btn').forEach(btn => {
+        // Function to save order to localStorage
+        function saveOrderToLocalStorage(order) {
+          // Get current orders from localStorage or create empty array
+          let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+          // Add new order
+          orders.push(order);
+
+          // Save back to localStorage
+          localStorage.setItem("orders", JSON.stringify(orders));
+        }
+
+        // Attach to existing "Contact Seller" buttons
+        document.addEventListener("DOMContentLoaded", () => {
+          document.querySelectorAll(".buy-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+              const order = {
+                productName: btn.getAttribute("data-name"),
+                price: parseFloat(btn.getAttribute("data-price")) || 0,
+                category: btn.getAttribute("data-category") || "Other",
+                image: btn.getAttribute("data-image") || "",
+                date: new Date().toISOString()
+              };
+              saveOrderToLocalStorage(order);
+            });
+          });
+        });
+
+        document.querySelectorAll(".buy-btn").forEach(btn => {
           btn.addEventListener("click", () => {
             const seller = {
               sellerName: btn.getAttribute("data-sellername"),
               sellerEmail: btn.getAttribute("data-selleremail"),
-              sellerPhone: btn.getAttribute("data-sellerphone")
+              sellerPhone: btn.getAttribute("data-sellerphone"),
+              name: btn.getAttribute("data-name"),
+              id: btn.getAttribute("data-id")
             };
             showSeller(seller);
           });
@@ -338,37 +364,37 @@ loadOrders();
       }
     }
 
-    // Show modal with seller info
     function showSeller(product) {
-  const info = `
-    <strong>Name:</strong> ${product.sellerName}<br>
-    <strong>Email:</strong> ${product.sellerEmail}<br>
-    <strong>Phone:</strong> ${product.sellerPhone}
-  `;
-  document.getElementById("sellerInfo").innerHTML = info;
+      const info = `
+      <strong>Name:</strong> ${product.sellerName}<br>
+      <strong>Email:</strong> ${product.sellerEmail}<br>
+      <strong>Phone:</strong> ${product.sellerPhone}
+    `;
+      document.getElementById("sellerInfo").innerHTML = info;
 
-  const buttons = `
-    <a href="mailto:${product.sellerEmail}" 
-       onclick="saveOrder('${product.id}','${product.name}','${product.sellerName}','${product.sellerEmail}','${product.sellerPhone}','Email')"
-       style="display:inline-block; margin:5px; padding:10px 15px; background:#1976d2; color:white; text-decoration:none; border-radius:6px;">
-       ✉️ Email Seller
-    </a>
-    <a href="tel:${product.sellerPhone}" 
-       onclick="saveOrder('${product.id}','${product.name}','${product.sellerName}','${product.sellerEmail}','${product.sellerPhone}','Call')"
-       style="display:inline-block; margin:5px; padding:10px 15px; background:#2e7d32; color:white; text-decoration:none; border-radius:6px;">
-       📞 Call Seller
-    </a>
-  `;
-  document.getElementById("contactButtons").innerHTML = buttons;
+      const buttons = `
+      <a href="mailto:${product.sellerEmail}" class="contact-seller email-btn"
+         onclick="saveOrder('${product.id}','${product.name}','${product.sellerName}','${product.sellerEmail}','${product.sellerPhone}','Email')">
+         ✉️ Email Seller
+      </a>
+      <a href="tel:${product.sellerPhone}" class="contact-seller call-btn"
+         onclick="saveOrder('${product.id}','${product.name}','${product.sellerName}','${product.sellerEmail}','${product.sellerPhone}','Call')">
+         📞 Call Seller
+      </a>
+    `;
+      document.getElementById("contactButtons").innerHTML = buttons;
+      document.getElementById("sellerModal").style.display = "flex";
+    }
 
-  document.getElementById("sellerModal").style.display = "flex";
-}
-
-
-    // Close modal
     function closeModal() {
       document.getElementById("sellerModal").style.display = "none";
     }
+
+    // Click outside modal closes it
+    window.onclick = e => {
+      const modal = document.getElementById("sellerModal");
+      if (e.target === modal) modal.style.display = "none";
+    };
 
     // Search filter
     document.getElementById("searchBox").addEventListener("input", e => {
@@ -378,10 +404,29 @@ loadOrders();
       });
     });
 
-    // Load products when page loads
+    // Set Home link based on user role
+    fetch('/api/user')
+      .then(async res => {
+        if (!res.ok) throw new Error("Unauthorized");
+        const user = await res.json();
+        const homeLink = document.getElementById('homeLink');
+        const role = user.role?.toLowerCase();
+
+        if (role === "seller") homeLink.href = "farmers.html";
+        else homeLink.href = "consumers.html";
+
+        homeLink.addEventListener('click', e => {
+          e.preventDefault();
+          window.location.href = homeLink.href;
+        });
+      })
+      .catch(err => {
+        console.error("Error fetching user:", err);
+        window.location.href = "login.html";
+      });
+
     loadProducts();
   </script>
-
 </body>
 
 </html>

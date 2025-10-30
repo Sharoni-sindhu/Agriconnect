@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Products | GreenFields</title>
   <style>
     body {
@@ -12,7 +14,13 @@
       min-height: 100vh;
     }
 
-    footer { background: #cf730a; color: white; text-align: center; padding: 10px; margin-top: auto; }
+    footer {
+      background: #cf730a;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: auto;
+    }
 
     /* ===== NAVBAR ===== */
     .navbar {
@@ -21,18 +29,37 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
-    .navbar h1 { margin: 0; font-size: 22px; color: white; }
-    .nav-links { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
-    .nav-links li { display: inline; }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 22px;
+      color: white;
+    }
+
+    .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li {
+      display: inline;
+    }
+
     .nav-links a {
       text-decoration: none;
       color: white;
       font-weight: 500;
       transition: color 0.3s;
     }
-    .nav-links a:hover { color: #bbdefb; }
+
+    .nav-links a:hover {
+      color: #bbdefb;
+    }
 
     /* ===== CONTAINER ===== */
     .container {
@@ -41,7 +68,11 @@
       padding: 30px;
     }
 
-    h2 { text-align: center; color: #2e7d32; margin-bottom: 20px; }
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
 
     #searchBox {
       padding: 12px;
@@ -63,12 +94,20 @@
       background: #fff;
       padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.2s;
       animation: fadeIn 0.6s ease-in;
     }
-    .product:hover { transform: scale(1.03); }
-    .product h3 { color: #cf730a; margin-top: 0; }
+
+    .product:hover {
+      transform: scale(1.03);
+    }
+
+    .product h3 {
+      color: #cf730a;
+      margin-top: 0;
+    }
+
     .product img {
       width: 100%;
       max-height: 200px;
@@ -77,7 +116,10 @@
       margin-top: 10px;
       transition: transform 0.3s;
     }
-    .product img:hover { transform: scale(1.05); }
+
+    .product img:hover {
+      transform: scale(1.05);
+    }
 
     .action-btn {
       margin-top: 12px;
@@ -88,15 +130,29 @@
       font-size: 14px;
       cursor: pointer;
     }
-    .edit-btn { background: #10b981; }
-    .delete-btn { background: #dc2626; }
+
+    .edit-btn {
+      background: #10b981;
+    }
+
+    .delete-btn {
+      background: #dc2626;
+    }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- NAVIGATION BAR -->
@@ -181,4 +237,5 @@
     loadMyProducts();
   </script>
 </body>
+
 </html>

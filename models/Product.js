@@ -5,11 +5,12 @@ const ProductSchema = new mongoose.Schema({
   name: { type: String, required: true },
   price: { type: Number, required: true },
   quantity: { type: Number, required: true },
-  description: { type: String },
-  phone: { type: String },
-  contactEmail: { type: String },
-  image: { type: String },
-  farmer: { type: mongoose.Schema.Types.ObjectId, ref: "User" } // ✅ Add this
-});
+  description: String,
+  phone: String,
+  contactEmail: String,
+  image: String,
+  farmer: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  category: String
+}, { timestamps: true }); // ✅ adds createdAt and updatedAt automatically
 
 module.exports = mongoose.model("Product", ProductSchema);

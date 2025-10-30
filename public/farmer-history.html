@@ -3,52 +3,259 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Products (History)</title>
+  <title>📦 My Products (History) | Green Fields</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --primary: #6b4226;
+      --secondary: #a3c14a;
+      --accent: #fffaf0;
+      --surface: #ffffff;
+      --gray: #f9f6ef;
+      --highlight: #ffb347;
+      --shadow: 0 4px 18px rgba(107, 66, 38, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #f9f9f9;
+      font-family: 'Poppins', sans-serif;
+      background: var(--accent);
+      color: #3b2f2f;
+      display: flex;
+      min-height: 100vh;
     }
-    h2 {
+
+    /* SIDEBAR */
+    aside.sidebar {
+      width: 260px;
+      background: var(--primary);
+      color: #fffaf0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      box-shadow: var(--shadow);
+    }
+
+    aside.sidebar h2 {
+      color: var(--highlight);
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 32px;
+      font-size: 2rem;
     }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .product {
-      background: #fff;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .product img {
-      max-width: 100%;
+
+    aside.sidebar a {
+      display: block;
+      padding: 12px 16px;
+      color: #fffaf0;
+      text-decoration: none;
       border-radius: 8px;
+      margin-bottom: 8px;
+      transition: 0.2s;
     }
-    .product h3 {
-      margin: 10px 0 5px;
+
+    aside.sidebar a:hover,
+    aside.sidebar a.active {
+      background: var(--secondary);
+      color: #2f2f1f;
+      transform: scale(1.05);
     }
-    .product p {
-      margin: 5px 0;
+
+    /* HEADER */
+    header {
+      background: var(--surface);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      border-bottom: 3px solid var(--highlight);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      margin-left: 260px;
+      padding: 40px 48px;
+      background: var(--accent);
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: var(--primary);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 20px rgba(107, 66, 38, 0.25);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 160px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 12px;
+    }
+
+    .product-card h3 {
+      color: var(--primary);
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    .product-card small {
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .delete-btn {
+      background: #c62828;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: 0.3s;
+    }
+
+    .delete-btn:hover {
+      background: #a61c1c;
+      transform: scale(1.05);
+    }
+
     .no-products {
       text-align: center;
       color: #777;
       margin-top: 30px;
     }
+
+    .top-controls button {
+      background: var(--secondary);
+      color: var(--primary);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .top-controls button:hover {
+      background: var(--highlight);
+      color: var(--surface);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 900px) {
+      aside.sidebar {
+        width: 200px;
+      }
+      main {
+        margin-left: 200px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <h2>📦 My Products (History)</h2>
-  <div id="products" class="products"></div>
-  <div id="message" class="no-products"></div>
+  <aside class="sidebar">
+    <div>
+      <h2><br></h2>
+      <nav>
+        <a href="farmers.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="farmer-history.html" class="active">My Products</a>
+        <a href="sellers.html">Add Product</a>
+      </nav>
+    </div>
+    <div><small>&copy; 2025 Green Fields</small></div>
+  </aside>
+
+  <div style="flex:1;">
+    <header>
+      <div><b>📦 Product History</b></div>
+      <div class="top-controls">
+        
+        <button id="logoutBtn">Logout</button>
+      </div>
+    </header>
+
+    <main>
+      <h1>My Products (History)</h1>
+      <div id="products" class="product-grid"></div>
+      <div id="message" class="no-products"></div>
+    </main>
+  </div>
 
   <script>
+    document.getElementById("logoutBtn").onclick = function () {
+      localStorage.removeItem("farmName");
+      window.location.href = "login.html";
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const name = localStorage.getItem("username") || "User";
+      document.getElementById("welcomeText").textContent = `Welcome, ${name}`;
+    });
+
+    async function deleteProduct(id) {
+      if (!confirm("Are you sure you want to delete this product?")) return;
+      try {
+        const res = await fetch(`/products/${id}`, { method: "DELETE" });
+        if (res.ok) {
+          alert("✅ Product deleted successfully!");
+          loadMyProducts();
+        } else {
+          alert("❌ Failed to delete product.");
+        }
+      } catch (err) {
+        console.error("Error deleting product:", err);
+      }
+    }
+
     async function loadMyProducts() {
       try {
         const res = await fetch("/my-products");
@@ -57,7 +264,7 @@
         const container = document.getElementById("products");
         const message = document.getElementById("message");
         container.innerHTML = "";
-        message.innerHTML = "";
+        message.textContent = "";
 
         if (!products.length) {
           message.textContent = "You haven’t added any products yet.";
@@ -65,16 +272,17 @@
         }
 
         products.forEach(p => {
-          const div = document.createElement("div");
-          div.className = "product";
-          div.innerHTML = `
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.innerHTML = `
             <img src="${p.image || '/uploads/default.jpg'}" alt="${p.name}">
             <h3>${p.name}</h3>
-            <p><strong>Price:</strong> ₹${p.price}</p>
-            <p>${p.description}</p>
-            <p><small>Added on: ${new Date(p.createdAt).toLocaleString()}</small></p>
+            <p><strong>₹${p.price}</strong> • ${p.category || 'Other'}</p>
+            <p>${p.description || "No description available."}</p>
+            <small>🕒 ${new Date(p.createdAt).toLocaleString()}</small>
+            <button class="delete-btn" onclick="deleteProduct('${p._id}')">❌ Delete</button>
           `;
-          container.appendChild(div);
+          container.appendChild(card);
         });
       } catch (err) {
         console.error("❌ Error loading products:", err);

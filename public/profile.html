@@ -1,273 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <title>Profile | AgriConnect</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile | Green Fields</yestitle>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f4f8f3;
-      margin: 0;
-      padding: 0;
+    :root {
+      /* 🌾 Agriculture-inspired color palette */
+      --primary: #6b4226;       /* earthy brown */
+      --secondary: #a3c14a;     /* fresh crop green */
+      --accent: #fffaf0;        /* light warm cream */
+      --surface: #ffffff;       /* white for cards */
+      --highlight: #ffb347;     /* harvest orange for accents */
+      --shadow: 0 2px 12px rgba(107, 66, 38, 0.1);
+      --radius: 12px;
+      --text: #3b2f2f;
+      --background: #fffaf0;
     }
 
-    .profile-container {
-      max-width: 750px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 8px 32px rgba(34, 68, 32, 0.13);
-      padding: 30px 24px 38px 24px;
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      transition: 0.3s;
+    }
+    body.dark-mode {
+      background:#2b1d0e;
+      color:#f3e8d1;
+    }
+
+    /* Sidebar */
+    aside.sidebar {
+      width: 250px;
+      background: var(--primary);
+      color: #fffaf0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    aside.sidebar h2 {
+      font-size: 1.4em;
+      margin-bottom: 24px;
+      color: var(--highlight);
+    }
+    aside.sidebar a {
+      display: block;
+      padding: 12px 16px;
+      color: #fffaf0;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 8px;
+      margin-bottom: 6px;
+      transition: background 0.2s ease-in-out;
+    }
+    aside.sidebar a:hover,
+    aside.sidebar a.active {
+      background: var(--secondary);
+      color: #2f2f1f;
+    }
+
+    /* Main layout */
+    .main-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: var(--accent);
     }
 
     header {
-      border-bottom: 1px solid #d1e7dd;
-      padding-bottom: 12px;
-      margin-bottom: 20px;
-      text-align: center;
+      background: var(--surface);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      border-bottom: 3px solid var(--highlight);
     }
 
-    header h1 {
-      color: #34783a;
+    header strong {
+      color: var(--primary);
+      font-size: 1.1em;
+    }
+
+    header .top-controls button {
+      margin-left: 10px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      background: var(--highlight);
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    header .top-controls button:hover {
+      background: #f9a825;
+    }
+
+    main {
+      flex: 1;
+      padding: 32px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    /* Profile Card */
+    .profile-container {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      transition: 0.3s;
+    }
+
+    .profile-container:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(107, 66, 38, 0.12);
+    }
+
+    h1 {
+      color: var(--primary);
+      margin-bottom: 6px;
     }
 
     #role-label {
-      background: #e5f5e6;
-      color: #2a6538;
-      display: inline-block;
-      padding: 3px 15px;
+      background: var(--secondary);
+      color: #fff;
+      padding: 5px 15px;
       border-radius: 15px;
-      margin-top: 5px;
-      font-size: 1.02em;
+      display: inline-block;
+      margin-top: 6px;
+      font-weight: 500;
     }
 
     h2 {
-      color: #4d6b3e;
-      margin-top: 18px;
-      margin-bottom: 9px;
+      color: var(--secondary);
+      margin-top: 25px;
+      margin-bottom: 10px;
+      font-size: 1.2em;
     }
 
-    section {
-      margin-bottom: 21px;
-    }
+    section { margin-bottom: 24px; }
 
     .profile-details table {
       width: 100%;
       border-collapse: collapse;
-      background: #fafcf8;
-      border-radius: 10px;
+      margin-top: 12px;
+      border-radius: 8px;
       overflow: hidden;
-      margin-top: 7px;
     }
 
     .profile-details th,
     .profile-details td {
+      padding: 10px 14px;
       text-align: left;
-      padding: 7px 8px;
     }
 
     .profile-details th {
-      background: #eaf6ea;
-      color: #387c43;
-      width: 135px;
-      font-weight: 600;
+      background: var(--accent);
+      color: var(--primary);
+      width: 180px;
     }
 
     .profile-details td {
-      color: #506450;
+      background: var(--surface);
+      color: var(--text);
     }
 
     .profile-details tr:not(:last-child) {
-      border-bottom: 1px solid #e0e8e0;
+      border-bottom: 1px solid var(--shadow);
     }
 
-    .profile-actions {
-      margin-top: 22px;
-      text-align: right;
-    }
-
+    /* Buttons */
     .action-btn {
-      padding: 7px 17px;
+      padding: 10px 20px;
       margin: 3px;
-      background: #36af53;
+      background: var(--secondary);
       color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.18s;
+      transition: background 0.3s ease-in-out;
     }
 
     .action-btn:hover {
-      background: #29883c;
+      background: #7fb85a;
     }
 
-    button {
-      outline: none;
+    .profile-actions {
+      margin-top: 25px;
+      text-align: right;
     }
 
+    /* Form */
     form input,
     form textarea,
     form select {
       width: 100%;
-      padding: 8px 10px;
-      margin: 6px 0 14px 0;
-      border: 1px solid #c8ecd3;
+      padding: 10px 12px;
+      margin: 8px 0 15px;
+      border: 1px solid var(--secondary);
       border-radius: 6px;
+      background: var(--accent);
       font-size: 1em;
     }
 
     form label {
       font-weight: 600;
-      color: #2d5733;
+      color: var(--primary);
+      display: block;
+      margin-top: 8px;
     }
 
-    .hidden {
-      display: none;
-    }
-
-    /* Profile Image Styling */
     .profile-image {
       text-align: center;
       margin-bottom: 18px;
     }
 
     .profile-image img {
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       object-fit: cover;
       border-radius: 50%;
-      border: 3px solid #36af53;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      border: 4px solid var(--secondary);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
-    @media (max-width: 800px) {
-      .profile-container {
-        padding: 10px;
-      }
+    .hidden { display: none; }
 
-      header h1 {
-        font-size: 1.4em;
-      }
+    @media (max-width: 900px) {
+      aside.sidebar { width: 70px; padding: 14px; }
+      aside.sidebar h2 { display: none; }
+      main { padding: 20px; }
+      .profile-container { padding: 22px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="profile-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div>
+      <h2>🌾 Green Fields</h2>
+      <nav>
+        <a href="farmers.html">Home</a>
+        <a href="profile.html" class="active">Profile</a>
+        <a href="farmer-history.html">Orders</a>
+        <a href="sellers.html">Add Product</a>
+      </nav>
+    </div>
+    <div><small>&copy; 2025 Green Valley Farm</small></div>
+  </aside>
+
+  <div class="main-area">
     <header>
-      <h1>Profile Dashboard</h1>
-      <p id="role-label">Role: <span id="profile-role">Not set</span></p>
+      <div><strong>Profile Dashboard</strong></div>
+      <div class="top-controls">
+        
+        <button onclick="window.location.href='login.html'">Logout</button>
+      </div>
     </header>
 
-    <!-- Profile Form -->
-    <section id="profile-form-section">
-      <h2>Enter Your Details</h2>
+    <main>
+      <div class="profile-container">
+        <header style="text-align:center;">
+          <h1>Your Profile</h1>
+          <p id="role-label">Role: <span id="profile-role">Not set</span></p>
+        </header>
 
-      <div class="profile-image">
-        <img id="preview-image"  alt="Profile Image">
+        <!-- Profile Form -->
+        <section id="profile-form-section">
+          <h2>Enter Your Details</h2>
+
+          <div class="profile-image">
+            <img id="preview-image" alt="Profile Image">
+          </div>
+
+          <form id="profile-form">
+            <label>Upload Profile Image:</label>
+            <input type="file" id="input-image" accept="image/*">
+
+            <label>Name:</label>
+            <input type="text" id="input-name" required>
+
+            <label>Role:</label>
+            <select id="input-role" required>
+              <option value="">Select role</option>
+              <option value="Farmer">Farmer</option>
+              <option value="Buyer">Buyer</option>
+              <option value="Both">Both</option>
+            </select>
+
+            <label>Location:</label>
+            <input type="text" id="input-location">
+
+            <label>Summary:</label>
+            <textarea id="input-summary" rows="3"></textarea>
+
+            <label>Products/Interests:</label>
+            <input type="text" id="input-products">
+
+            <label>Community/FPO:</label>
+            <input type="text" id="input-fpo">
+
+            <label>Certifications:</label>
+            <input type="text" id="input-cert">
+
+            <label>Preferred Payment:</label>
+            <input type="text" id="input-payment">
+
+            <label>Languages:</label>
+            <input type="text" id="input-languages">
+
+            <label>Contact:</label>
+            <input type="email" id="input-contact">
+
+            <button type="submit" class="action-btn">Save Profile</button>
+          </form>
+        </section>
+
+        <!-- Profile Display -->
+        <section id="profile-display-section" class="hidden">
+          <div class="profile-image">
+            <img id="display-image" src="default.png" alt="Profile Image">
+          </div>
+
+          <h2>Profile Summary</h2>
+          <p id="display-summary"></p>
+
+          <h2>Key Details</h2>
+          <div class="profile-details">
+            <table>
+              <tr><th>Name</th><td id="display-name"></td></tr>
+              <tr><th>Location</th><td id="display-location"></td></tr>
+              <tr><th>Products/Interests</th><td id="display-products"></td></tr>
+              <tr><th>Community/FPO</th><td id="display-fpo"></td></tr>
+              <tr><th>Certifications</th><td id="display-cert"></td></tr>
+              <tr><th>Preferred Payment</th><td id="display-payment"></td></tr>
+              <tr><th>Languages</th><td id="display-languages"></td></tr>
+              <tr><th>Contact</th><td id="display-contact"></td></tr>
+            </table>
+          </div>
+
+          <div class="profile-actions">
+            <button id="edit-profile" class="action-btn">Edit Profile</button>
+          </div>
+        </section>
       </div>
-
-      <form id="profile-form">
-        <label>Upload Profile Image:</label>
-        <input type="file" id="input-image" accept="image/*">
-
-        <label>Name:</label>
-        <input type="text" id="input-name" required>
-
-        <label>Role:</label>
-        <select id="input-role" required>
-          <option value="">Select role</option>
-          <option value="Farmer">Farmer</option>
-          <option value="Buyer">Buyer</option>
-          <option value="Both">Both</option>
-        </select>
-
-        <label>Location:</label>
-        <input type="text" id="input-location">
-
-        <label>Summary:</label>
-        <textarea id="input-summary" rows="3"></textarea>
-
-        <label>Products/Interests:</label>
-        <input type="text" id="input-products">
-
-        <label>Community/FPO:</label>
-        <input type="text" id="input-fpo">
-
-        <label>Certifications:</label>
-        <input type="text" id="input-cert">
-
-        <label>Preferred Payment:</label>
-        <input type="text" id="input-payment">
-
-        <label>Languages:</label>
-        <input type="text" id="input-languages">
-
-        <label>Contact:</label>
-        <input type="email" id="input-contact">
-
-        <button type="submit" class="action-btn">Save Profile</button>
-      </form>
-    </section>
-
-    <!-- Profile Display -->
-    <section id="profile-display-section" class="hidden">
-      <div class="profile-image">
-       <!-- put a default.png inside public/ folder -->
-<img id="preview-image" src="default.png" alt="Profile Image">
-<img id="display-image" src="default.png" alt="Profile Image">
-
-
-      <h2>Profile Summary</h2>
-      <p id="display-summary"></p>
-
-      <h2>Key Details</h2>
-      <div class="profile-details">
-        <table>
-          <tr>
-            <th>Name</th>
-            <td id="display-name"></td>
-          </tr>
-          <tr>
-            <th>Location</th>
-            <td id="display-location"></td>
-          </tr>
-          <tr>
-            <th>Products/Interests</th>
-            <td id="display-products"></td>
-          </tr>
-          <tr>
-            <th>Community/FPO</th>
-            <td id="display-fpo"></td>
-          </tr>
-          <tr>
-            <th>Certifications</th>
-            <td id="display-cert"></td>
-          </tr>
-          <tr>
-            <th>Preferred Payment</th>
-            <td id="display-payment"></td>
-          </tr>
-          <tr>
-            <th>Languages</th>
-            <td id="display-languages"></td>
-          </tr>
-          <tr>
-            <th>Contact</th>
-            <td id="display-contact"></td>
-          </tr>
-        </table>
-      </div>
-      <div class="profile-actions">
-        <button id="edit-profile" class="action-btn">Edit Profile</button>
-      </div>
-    </section>
+    </main>
   </div>
 
   <script>
+    const username = localStorage.getItem("loggedInUser");
+
+    if (!username) {
+      alert("Please log in first!");
+      window.location.href = "login.html";
+    }
+
     const profileForm = document.getElementById("profile-form");
     const formSection = document.getElementById("profile-form-section");
     const displaySection = document.getElementById("profile-display-section");
@@ -276,7 +375,6 @@
     const previewImage = document.getElementById("preview-image");
     const displayImage = document.getElementById("display-image");
 
-    // Preview uploaded image
     inputImage.addEventListener("change", function () {
       const file = this.files[0];
       if (file) {
@@ -289,68 +387,56 @@
     });
 
     profileForm.addEventListener("submit", function (e) {
-  e.preventDefault();
+      e.preventDefault();
+      const profileData = {
+        username,
+        name: document.getElementById("input-name").value,
+        role: document.getElementById("input-role").value,
+        location: document.getElementById("input-location").value,
+        summary: document.getElementById("input-summary").value,
+        products: document.getElementById("input-products").value,
+        fpo: document.getElementById("input-fpo").value,
+        cert: document.getElementById("input-cert").value,
+        payment: document.getElementById("input-payment").value,
+        languages: document.getElementById("input-languages").value,
+        contact: document.getElementById("input-contact").value,
+        image: previewImage.src || "default.png"
+      };
+      localStorage.setItem(`profile_${username}`, JSON.stringify(profileData));
+      alert("✅ Profile saved successfully!");
+      showProfile(profileData);
+    });
 
-  // Collect values
-  const name = document.getElementById("input-name").value;
-  const role = document.getElementById("input-role").value;
-  const location = document.getElementById("input-location").value;
-  const summary = document.getElementById("input-summary").value;
-  const products = document.getElementById("input-products").value;
-  const fpo = document.getElementById("input-fpo").value;
-  const cert = document.getElementById("input-cert").value;
-  const payment = document.getElementById("input-payment").value;
-  const languages = document.getElementById("input-languages").value;
-  const contact = document.getElementById("input-contact").value;
-  const image = previewImage.src || "default.png"; // fallback image
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedProfile = localStorage.getItem(`profile_${username}`);
+      if (savedProfile) {
+        const profile = JSON.parse(savedProfile);
+        showProfile(profile);
+      }
+    });
 
-  const profileData = { name, role, location, summary, products, fpo, cert, payment, languages, contact, image };
+    function showProfile(profile) {
+      document.getElementById("display-name").innerText = profile.name;
+      document.getElementById("display-location").innerText = profile.location;
+      document.getElementById("display-summary").innerText = profile.summary;
+      document.getElementById("display-products").innerText = profile.products;
+      document.getElementById("display-fpo").innerText = profile.fpo;
+      document.getElementById("display-cert").innerText = profile.cert;
+      document.getElementById("display-payment").innerText = profile.payment;
+      document.getElementById("display-languages").innerText = profile.languages;
+      document.getElementById("display-contact").innerText = profile.contact;
+      displayImage.src = profile.image || "default.png";
+      profileRole.innerText = profile.role;
+      formSection.classList.add("hidden");
+      displaySection.classList.remove("hidden");
+    }
 
-  // Save to localStorage
-  localStorage.setItem("userProfile", JSON.stringify(profileData));
+    document.getElementById("edit-profile").addEventListener("click", () => {
+      formSection.classList.remove("hidden");
+      displaySection.classList.add("hidden");
+    });
 
-  alert("✅ Profile saved successfully!");
-  window.location.href = "consumers.html"; // go back to dashboard
-});
-
-  const res = await fetch("/api/profile", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(profileData)
-});
-
-let data;
-try {
-  data = await res.json();
-} catch (err) {
-  console.error("Response not JSON:", err);
-  throw new Error("Server did not return JSON");
-}
-
-if (res.ok) {
-  alert("✅ Profile saved in MongoDB!");
-  window.location.href = "farmers.html";
-} else {
-  alert("❌ Failed: " + (data.error || "Unknown error"));
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-  const storedProfile = JSON.parse(localStorage.getItem("userProfile")) || {};
-  if (storedProfile.name) document.getElementById("input-name").value = storedProfile.name;
-  if (storedProfile.role) document.getElementById("input-role").value = storedProfile.role;
-  if (storedProfile.location) document.getElementById("input-location").value = storedProfile.location;
-  if (storedProfile.summary) document.getElementById("input-summary").value = storedProfile.summary;
-  if (storedProfile.products) document.getElementById("input-products").value = storedProfile.products;
-  if (storedProfile.fpo) document.getElementById("input-fpo").value = storedProfile.fpo;
-  if (storedProfile.cert) document.getElementById("input-cert").value = storedProfile.cert;
-  if (storedProfile.payment) document.getElementById("input-payment").value = storedProfile.payment;
-  if (storedProfile.languages) document.getElementById("input-languages").value = storedProfile.languages;
-  if (storedProfile.contact) document.getElementById("input-contact").value = storedProfile.contact;
-  if (storedProfile.image) previewImage.src = storedProfile.image;
-});
-
-
+  
   </script>
 </body>
-
 </html>

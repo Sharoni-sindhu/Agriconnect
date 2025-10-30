@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farmers Dashboard | Overview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #104c22;
+      --secondary: #207935;
+      --accent: #f7fafc;
+      --surface: #fff;
+      --shadow: 0 2px 12px rgba(34,138,30,0.05);
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Poppins',sans-serif; background:var(--accent); color:#222; min-height:100vh; display:flex; transition:0.3s;}
+    body.dark-mode{background:#131a1d; color:#cfe3d3;}
+
+    /* Sidebar */
+    aside.sidebar{width:250px; background:var(--primary); color:#fff; display:flex; flex-direction:column; justify-content:space-between; padding:24px;}
+    aside.sidebar h2{margin-bottom:24px;}
+    aside.sidebar a{display:block; padding:12px 16px; color:#fff; text-decoration:none; font-weight:500; margin-bottom:6px; border-radius:6px; transition:0.2s;}
+    aside.sidebar a:hover, aside.sidebar a.active{background:var(--secondary);}
+
+    /* Header */
+    header{background:var(--surface); padding:16px 24px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 12px rgba(0,0,0,0.05); transition:0.3s;}
+    header .top-controls button{margin-left:10px; padding:6px 12px; border-radius:6px; border:none; cursor:pointer; transition:0.2s;}
+
+    /* Main content */
+    main{flex:1; padding:28px; transition:0.3s;}
+
+    /* Stats Cards */
+    .stats-row{display:flex; gap:20px; flex-wrap:wrap; margin-bottom:30px;}
+    .stat-card{background:var(--surface); border-radius:12px; padding:18px; flex:1; min-width:180px; box-shadow:0 2px 12px rgba(0,0,0,0.05);}
+    .stat-card h3{font-size:1em;color:#555;}
+    .stat-card .value{font-size:1.8em;font-weight:700;color:var(--primary);}
+
+    /* Recent List */
+    .recent-list{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;}
+    .recent-item{background:var(--surface); padding:12px 18px; border-radius:10px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 12px rgba(0,0,0,0.05);}
+
+    body.dark-mode aside.sidebar{background:#0b2f12;}
+    body.dark-mode .stat-card, body.dark-mode .recent-item, body.dark-mode header, body.dark-mode main{background:#1c262a; color:#cfe3d3;}
+    body.dark-mode .stat-card .value{color:#9fe1a2;}
+
+    @media(max-width:900px){
+      aside.sidebar{width:60px; padding:12px;}
+      main{padding:20px;}
+      .stats-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div>
+      <h2 id="farmName">🌾 Green Fields</h2>
+      <nav>
+        <a href="overview.html" class="active">Overview</a>
+        <a href="profile.html">Profile</a>
+        <a href="orders.html">Orders</a>
+        <a href="sellers.html">Add Product</a>
+        <a href="settings.html">Settings</a>
+      </nav>
+    </div>
+    <div><small>&copy; 2025 Green Valley Farm</small></div>
+  </aside>
+  
+  <div style="flex:1;">
+    <header>
+      <div>Farmers Dashboard</div>
+      <div class="top-controls">
+        <span id="welcomeText">Welcome, Green Valley Farm</span>
+        <button id="switchDark">🌙</button>
+        <button id="btnLogout">Logout</button>
+      </div>
+    </header>
+    
+    <main>
+      <h2>Farm Sales & Revenue Overview</h2>
+      <div class="stats-row">
+        <div class="stat-card"><h3>Total Orders</h3><div class="value">156</div></div>
+        <div class="stat-card"><h3>Total Sales</h3><div class="value">$4,235</div></div>
+        <div class="stat-card"><h3>Top Product</h3><div class="value">Organic Tomatoes</div></div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card"><h3>Lowest Selling Product</h3><div class="value">Carrots</div></div>
+        <div class="stat-card"><h3>Revenue This Month</h3><div class="value">$1,240</div></div>
+      </div>
+      <div style="margin-top:30px; padding:20px; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.05); background:var(--surface);">
+        <h3>Recent Sales</h3>
+        <ul class="recent-list">
+          <li class="recent-item">John Smith - Organic Tomatoes 5kg - $25</li>
+          <li class="recent-item">Sarah Johnson - Fresh Lettuce 2kg - $12</li>
+          <li class="recent-item">Mike Brown - Carrots 3kg - $18</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Dark Mode Toggle
+    const switchDark = document.getElementById('switchDark');
+    if(localStorage.getItem('dark')==='true'){document.body.classList.add('dark-mode');}
+    switchDark.onclick = function() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('dark', document.body.classList.contains('dark-mode'));
+    }
+
+    // Load username from localStorage
+    function loadFarmName() {
+      const farmName = localStorage.getItem("farmName");
+      if(farmName){
+        document.getElementById("farmName").textContent = "🌾 " + farmName;
+        document.getElementById("welcomeText").textContent = "Welcome, " + farmName;
+      }
+    }
+
+    // Logout
+    function logout(){
+      localStorage.removeItem("farmName");
+      window.location.href = "login.html";
+    }
+    document.getElementById("btnLogout").onclick = logout;
+
+    loadFarmName();
+  </script>
+</body>
+</html>

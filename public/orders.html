@@ -1,95 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>My Orders</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📦 My Orders | Green Fields</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: #f5f5f5;
-      min-height: 100vh;
-    }
-    .navbar {
-      background: #cf730a;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-    .navbar h1 { color: white; font-size: 22px; margin: 0; }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 20px;
+   :root {
+  --primary: #1E8562;   /* greenish */
+  --secondary: #4ABDAC; /* bluish */
+  --accent: #f0f9f5;
+  --surface: #ffffff;
+  --highlight: #1E8562;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --text: #333;
+  --background: #f0f9f5;
+}
+
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    .nav-links a { color: white; text-decoration: none; font-weight: 500; }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 30px;
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--accent);
+      color: #3b2f2f;
+      display: flex;
+      min-height: 100vh;
     }
-    h2 { text-align: center; color: #2e7d32; }
+
+    /* SIDEBAR */
+    aside.sidebar {
+      width: 260px;
+      background: var(--primary);
+      color: #fffaf0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      box-shadow: var(--shadow);
+    }
+
+    aside.sidebar h2 {
+      color: var(--secondary);
+      text-align: center;
+      margin-bottom: 32px;
+      font-size: 2rem;
+    }
+
+    aside.sidebar a {
+      display: block;
+      padding: 12px 16px;
+      color: #fffaf0;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      transition: 0.2s;
+    }
+
+    aside.sidebar a:hover,
+    aside.sidebar a.active {
+      background: var(--secondary);
+      color: #2f2f1f;
+      transform: scale(1.05);
+    }
+
+    /* HEADER */
+    header {
+      background: var(--surface);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      border-bottom: 3px solid var(--secondary);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header b {
+      color: var(--primary);
+      font-size: 18px;
+    }
+
+    .top-controls button {
+      background: var(--secondary);
+      color: var(--primary);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .top-controls button:hover {
+      background: var(--primary);
+      color: var(--surface);
+      transform: scale(1.05);
+    }
+
+    /* MAIN CONTENT */
+    main {
+      flex: 1;
+      margin-left: 260px;
+      padding: 40px 48px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: var(--primary);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .filter-bar input,
+    .filter-bar select,
+    .filter-bar button {
+      padding: 10px 14px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      box-shadow: var(--shadow);
+      outline: none;
+    }
+
+    .filter-bar input {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .filter-bar select {
+      cursor: pointer;
+      border: 1px solid #ccc;
+    }
+
+    .filter-bar button {
+      background: var(--secondary);
+      color: var(--primary);
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .filter-bar button:hover {
+      background: var(--primary);
+      color: var(--surface);
+      transform: scale(1.05);
+    }
+
+    /* GRID LAYOUT */
+    #ordersList {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
     .order {
-      background: white;
-      margin-bottom: 15px;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background: var(--surface);
+      padding: 16px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .order strong { color: #cf730a; }
+
+    .order:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(107, 66, 38, 0.25);
+    }
+
+    .order img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .order h3 {
+      color: var(--primary);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .order p {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    .order small {
+      color: #777;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 12px;
+      font-size: 12px;
+      border-radius: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .badge.confirmed {
+      background: var(--secondary);
+      color: var(--surface);
+    }
+
+    .badge.pending {
+      background: #ffd580;
+      color: #6b4226;
+    }
+
+    .badge.delivered {
+      background: #c8e6c9;
+      color: var(--primary);
+    }
+
+    .badge.cancelled {
+      background: #ffcccb;
+      color: #c62828;
+    }
+
+    @media (max-width: 900px) {
+      aside.sidebar {
+        width: 200px;
+      }
+
+      main {
+        margin-left: 200px;
+      }
+    }
   </style>
 </head>
+
 <body>
+  <aside class="sidebar">
+    <div>
+      <h2>🌿</h2>
+      <nav>
+        <a href="consumers.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="orders.html" class="active">My Orders</a>
+        <a href="buyers.html">Buy</a>
+      </nav>
+    </div>
+    <div><small>&copy; 2025 Green Fields</small></div>
+  </aside>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <h1>Green Fields</h1>
-    <ul class="nav-links">
-      <li><a href="farmers.html">Home</a></li>
-      <li><a href="sellers.html">Sell Products</a></li>
-      <li><a href="buyers.html">Buy Products</a></li>
-      <li><a href="orders.html">My Orders</a></li>
-      <li><a href="logout">Logout</a></li>
-    </ul>
-  </nav>
+  <div style="flex:1;">
+    <header>
+      <div><b>📦 My Orders</b></div>
+      <div class="top-controls">
+        <button id="logoutBtn">Logout</button>
+      </div>
+    </header>
 
-  <!-- ORDERS LIST -->
-  <div class="container">
-    <h2>📦 My Orders</h2>
-    <div id="ordersList"></div>
+    <main>
+      <h1>My Orders</h1>
+
+      <div class="filter-bar">
+        <input type="text" id="searchInput" placeholder="🔍 Search by product or seller...">
+        <select id="statusFilter">
+          <option value="confirmed">Confirmed</option>
+          <option value="pending">Pending</option>
+          <option value="delivered">Delivered</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+        <button id="sortToggle">⬆ Sort by Latest</button>
+      </div>
+
+      <div id="ordersList"></div>
+    </main>
   </div>
 
   <script>
+    document.getElementById("logoutBtn").onclick = function () {
+      localStorage.removeItem("farmName");
+      window.location.href = "login.html";
+    };
+
+    let allOrders = [];
+    let sortLatest = true;
+
     async function loadOrders() {
       try {
         const res = await fetch("/orders");
         const orders = await res.json();
-        const list = document.getElementById("ordersList");
-
-        if (!orders.length) {
-          list.innerHTML = "<p style='text-align:center; color:#888;'>No orders yet.</p>";
-          return;
-        }
-
-        list.innerHTML = orders.map(o => `
-          <div class="order">
-            <p><strong>Product:</strong> ${o.productName}</p>
-            <p><strong>Seller:</strong> ${o.sellerName}</p>
-            <p><strong>Email:</strong> ${o.sellerEmail}</p>
-            <p><strong>Phone:</strong> ${o.sellerPhone}</p>
-            <small>Ordered on: ${new Date(o.createdAt).toLocaleString()}</small>
-          </div>
-        `).join("");
+        allOrders = orders;
+        renderOrders(orders);
       } catch (err) {
         console.error("Error loading orders:", err);
       }
     }
+
+    function renderOrders(orders) {
+      const list = document.getElementById("ordersList");
+
+      if (!orders.length) {
+        list.innerHTML = "<p style='text-align:center; color:#777;'>No orders found.</p>";
+        return;
+      }
+
+      const sorted = [...orders].sort((a, b) => {
+        return sortLatest
+          ? new Date(b.createdAt) - new Date(a.createdAt)
+          : new Date(a.createdAt) - new Date(b.createdAt);
+      });
+
+      list.innerHTML = sorted.map(o => `
+        <div class="order">
+          <span class="badge ${(o.status || 'confirmed').toLowerCase()}">${(o.status || 'Confirmed').toUpperCase()}</span>
+          <img src="${o.image || '/uploads/default.jpg'}" alt="${o.productName || 'Product'}">
+          <h3>${o.productName || "Unnamed Product"}</h3>
+          <p><strong>Seller:</strong> ${o.sellerName || "Unknown"}</p>
+          <p><strong>Email:</strong> ${o.sellerEmail || "Not Provided"}</p>
+          <p><strong>Phone:</strong> ${o.sellerPhone || "Not Provided"}</p>
+          <small>🕒 Ordered on: ${new Date(o.createdAt).toLocaleString()}</small>
+        </div>
+      `).join("");
+    }
+
+    function applyFilters() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const status = document.getElementById("statusFilter").value;
+
+      const filtered = allOrders.filter(o => {
+        const matchesSearch =
+          o.productName.toLowerCase().includes(query) ||
+          o.sellerName.toLowerCase().includes(query);
+        const matchesStatus = (o.status || "confirmed").toLowerCase() === status;
+        return matchesSearch && matchesStatus;
+      });
+
+      renderOrders(filtered);
+    }
+
+    document.getElementById("searchInput").addEventListener("input", applyFilters);
+    document.getElementById("statusFilter").addEventListener("change", applyFilters);
+    document.getElementById("sortToggle").addEventListener("click", function () {
+      sortLatest = !sortLatest;
+      this.textContent = sortLatest ? "⬆ Sort by Latest" : "⬇ Sort by Oldest";
+      applyFilters();
+    });
+
     loadOrders();
   </script>
 
 </body>
+
 </html>
