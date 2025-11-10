@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GreenFields | Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      color: #333;
+    }
+
+    /* Background with blur + zoom animation */
+    .background {
+      position: fixed;
+      inset: 0;
+      background: url("shop.png") center/cover no-repeat;
+      filter: blur(6px);
+      z-index: 0;
+      animation: zoomEffect 18s infinite alternate ease-in-out;
+    }
+    @keyframes zoomEffect {
+      from { transform: scale(1); }
+      to { transform: scale(1.12); }
+    }
+
+    /* Dark overlay */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding: 40px;
+      box-sizing: border-box;
+      z-index: 1;
+    }
+
+    /* Popup container */
+    .popup {
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px 25px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      text-align: center;
+      animation: slideUp 0.8s ease-out;
+      position: relative;
+    }
+
+    /* Slide-up + fade animation */
+    @keyframes slideUp {
+      from { transform: translateY(100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Close button */
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #888;
+      transition: color 0.3s;
+    }
+    .close-btn:hover { color: #e74c3c; }
+
+    .popup h2 {
+      margin-bottom: 12px;
+      color: #2e7d32;
+      font-size: 1.6rem;
+    }
+
+    .popup p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* Buttons row */
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #f39c12;
+      color: #fff;
+    }
+    .btn-primary:hover { background: #d9820f; }
+
+    .btn-secondary {
+      background: #e0e0e0;
+      color: #333;
+    }
+    .btn-secondary:hover { background: #ccc; }
+  </style>
+</head>
+<body>
+  <!-- Blurred background -->
+  <div class="background"></div>
+
+  <!-- Dark overlay + popup -->
+  <div class="overlay">
+    <div class="popup">
+      <button class="close-btn" onclick="goHome()">✖</button>
+      <h2>Join GreenFields</h2>
+      <p>Create an account to buy fresh farm products and connect directly with farmers.</p>
+      <div class="actions">
+        <button class="btn btn-secondary" onclick="goHome()">Later</button>
+        <button class="btn btn-primary" onclick="goToSignup()">Sign Up</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function goToSignup() {
+      window.location.href = "signup.html";
+    }
+    function goHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

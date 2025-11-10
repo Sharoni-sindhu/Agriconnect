@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>How It Works | AgriConnect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8fdf6;
+      color: #2c3e1e;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e1e9dd;
+      box-shadow: 0 2px 6px rgba(50, 78, 33, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #34783a;
+      gap: 8px;
+    }
+
+    .logo img {
+      width: 36px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #365d2a;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #236636;
+    }
+
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 0;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      color: #2f6033;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .intro {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 50px;
+      color: #46573e;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .step {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .step:hover {
+      transform: translateY(-6px);
+    }
+
+    .step img {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+
+    .step h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #2f6033;
+    }
+
+    .step p {
+      font-size: 0.95rem;
+      color: #46573e;
+    }
+
+    footer {
+      background: #2f6033;
+      color: #fff;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/2545/2545792.png" alt="Logo">
+        AgriConnect
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog & Insights</a></li>
+          <li><a href="howitworks.html" class="active">How It Works</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+      <a href="signup.html" class="btn-signin" style="background:#34783a;color:#fff;padding:8px 16px;border-radius:6px;font-weight:600;text-decoration:none;">Sign In / Register</a>
+    </div>
+  </header>
+
+  <!-- How It Works -->
+  <div class="container">
+    <h1>How AgriConnect Works</h1>
+    <p class="intro">We connect farmers directly to consumers by eliminating middlemen, ensuring fair prices, fresh produce, and a transparent process.</p>
+
+    <div class="steps">
+      <div class="step">
+        <img src="https://cdn-icons-png.flaticon.com/512/3176/3176367.png" alt="Find Farms">
+        <h3>Find Farms</h3>
+        <p>Locate nearby organic and certified farms using our smart search and interactive map feature.</p>
+      </div>
+
+      <div class="step">
+        <img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png" alt="Place Orders">
+        <h3>Place Orders</h3>
+        <p>Browse seasonal produce and place secure orders directly from farmers with just a few clicks.</p>
+      </div>
+
+      <div class="step">
+        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Fast Delivery">
+        <h3>Fast Delivery</h3>
+        <p>Fresh produce delivered to your doorstep through eco-friendly logistics partners.</p>
+      </div>
+
+      <div class="step">
+        <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Fair Prices">
+        <h3>Fair Prices</h3>
+        <p>No middlemen involved. Farmers earn better margins, and consumers pay fair prices.</p>
+      </div>
+
+      <div class="step">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828673.png" alt="Transparency">
+        <h3>Full Transparency</h3>
+        <p>Every product is traceable back to its farm source, ensuring authenticity and trust.</p>
+      </div>
+
+      <div class="step">
+        <img src="https://cdn-icons-png.flaticon.com/512/2983/2983789.png" alt="Payments">
+        <h3>Secure Payments</h3>
+        <p>Multiple payment options including UPI, debit/credit cards, and wallets for hassle-free transactions.</p>
+      </div>
+
+      <div class="step">
+        <img src="https://cdn-icons-png.flaticon.com/512/1250/1250689.png" alt="Support">
+        <h3>Customer Support</h3>
+        <p>Our dedicated support team is here to help you with queries, replacements, or delivery issues.</p>
+      </div>
+
+      <div class="step">
+        <img src="https://cdn-icons-png.flaticon.com/512/2645/2645897.png" alt="Sustainability">
+        <h3>Sustainable Practices</h3>
+        <p>We encourage eco-friendly farming and logistics to reduce carbon footprint and promote sustainability.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 AgriConnect. All Rights Reserved.
+  </footer>
+</body>
+
+</html>

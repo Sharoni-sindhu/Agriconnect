@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriConnect - Blog & Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins', sans-serif; background:#f8fdf6; color:#2c3e1e; line-height:1.6; }
+
+    a { text-decoration:none; color:inherit; }
+
+    header { background:#fff; border-bottom:1px solid #e1e9dd; box-shadow:0 2px 6px rgba(50,78,33,0.08); position:sticky; top:0; z-index:1000; }
+    .header-inner { display:flex; justify-content:space-between; align-items:center; padding:14px 20px; flex-wrap:wrap; gap:15px; }
+    .logo { display:flex; align-items:center; gap:10px; font-size:1.6rem; font-weight:700; color:#34783a; }
+    .logo img { width:38px; height:auto; }
+    nav ul { display:flex; gap:28px; list-style:none; }
+    nav a { font-weight:600; font-size:1rem; color:#365d2a; padding:4px 0; position:relative; transition:color 0.3s ease; }
+    nav a:hover, nav a.active { color:#236636; }
+    nav a.active::after, nav a:hover::after { content:''; position:absolute; left:0; bottom:-6px; width:100%; height:3px; background:#f39c12; border-radius:3px; }
+
+    .container { width:90%; max-width:1200px; margin:40px auto; }
+
+    h1.page-title { text-align:center; color:#2f6033; margin-bottom:30px; font-size:2.4rem; }
+    .blog-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; }
+    .blog-card { background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:transform 0.3s ease; }
+    .blog-card:hover { transform:translateY(-5px); }
+    .blog-card img { width:100%; border-radius:10px; margin-bottom:15px; height:180px; object-fit:cover; }
+    .blog-card h3 { color:#2f6033; font-size:1.2rem; margin-bottom:8px; }
+    .blog-card p { color:#555; font-size:0.95rem; margin-bottom:12px; }
+    .blog-card a { color:#f39c12; font-weight:600; text-decoration:none; transition:0.3s; }
+    .blog-card a:hover { color:#d9820f; }
+
+    footer { background:#2f6033; color:white; text-align:center; padding:40px 20px; margin-top:50px; }
+  </style>
+</head>
+<body>
+    <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/2545/2545792.png" alt="Logo">
+        AgriConnect
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html" class="active">Blog & Insights</a></li>
+          <li><a href="howitworks.html" >How It Works</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+      <a href="signup.html" class="btn-signin" style="background:#34783a;color:#fff;padding:8px 16px;border-radius:6px;font-weight:600;text-decoration:none;">Sign In / Register</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1 class="page-title">Blog & Insights</h1>
+    <div class="blog-grid">
+      <!-- Example Blog Card -->
+      <div class="blog-card">
+        <img src="regrow.jpg" alt="Blog Image">
+        <h3>5 Tips for Organic Farming at Home</h3>
+        <p>Learn how to grow vegetables and herbs organically with simple techniques suitable for your backyard or balcony.</p>
+        <a href="https://medium.com/@agriconnect.greenlinker/5-tips-for-organic-farming-at-home-a8bf1d90a06c">Read More →</a>
+      </div>
+
+      <div class="blog-card">
+        <img src="balcony.jpg" alt="Blog Image">
+        <h3>Seasonal Fruits: When to Harvest</h3>
+        <p>Understand the best time to pick fruits to ensure freshness, taste, and maximum nutritional value.</p>
+        <a href="https://medium.com/@agriconnect.greenlinker/seasonal-fruits-when-to-harvest-d976217760ac">Read More →</a>
+      </div>
+
+      <div class="blog-card">
+        <img src="sustainable_farm.jpg" alt="Blog Image">
+        <h3>Sustainable Agriculture Practices</h3>
+        <p>Discover eco-friendly farming practices that improve yield while protecting the environment.</p>
+        <a href="https://medium.com/@agriconnect.greenlinker/sustainable-agriculture-practices-6e2705b76598">Read More →</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 AgriConnect. All Rights Reserved.
+  </footer>
+</body>
+</html>

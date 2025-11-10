@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crop Recommendations | AgriConnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* 🌿 General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #d8f3dc, #b7e4c7, #95d5b2);
+      background-size: 400% 400%;
+      animation: gradientFlow 15s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 🌿 Navbar */
+    .navbar {
+      width: 100%;
+      padding: 20px 40px;
+      background: rgba(46, 125, 50, 0.95);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      backdrop-filter: blur(6px);
+    }
+
+    .navbar h1 {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      background: #66bb6a;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background: #4caf50;
+      transform: translateY(-2px);
+    }
+
+    /* 🌾 Container */
+    .container {
+      width: 100%;
+      max-width: 500px;
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 35px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-in-out;
+      z-index: 2;
+      margin-top: 160px; /* fixed for navbar overlap */
+    }
+
+    /* 🌱 Animated background inside div */
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.ibb.co/jJMvVfT/field-texture.png');
+      background-size: cover;
+      opacity: 0.2;
+      z-index: 0;
+      animation: moveField 20s linear infinite;
+    }
+
+    @keyframes moveField {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
+    /* 🌼 Overlay soft gradient for depth */
+    .container::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, rgba(255,255,255,0.8), rgba(255,255,255,0.9));
+      z-index: 1;
+    }
+
+    h2, form, .result, .loader {
+      position: relative;
+      z-index: 2;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 26px;
+      background: linear-gradient(90deg, #2e7d32, #66bb6a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 3px;
+      margin: 10px auto 0;
+      background: #4CAF50;
+      border-radius: 2px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #2e7d32;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      height: 47px; /* ✅ Ensures same height for all inputs */
+      box-sizing: border-box;
+    }
+
+    input:focus, select:focus {
+      border-color: #4CAF50;
+      box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(90deg, #4CAF50, #2e7d32);
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #2e7d32;
+      text-align: center;
+      opacity: 0;
+      animation: fadeUp 1s forwards;
+    }
+
+    .loader {
+      border: 4px solid #e0e0e0;
+      border-top: 4px solid #4CAF50;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+      display: none;
+    }
+
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 🍃 Falling Leaves */
+    .leaf {
+      position: absolute;
+      top: -50px;
+      width: 40px;
+      animation: fall 7s linear infinite;
+      opacity: 0.6;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🌿 Navbar -->
+  <nav class="navbar" style="width:1450px">
+    <h1>🌾 AgriConnect</h1>
+    <a href="farmers.html">Home</a>
+  </nav>
+
+  <!-- 🍃 Floating Leaves -->
+  <img src="https://cdn-icons-png.flaticon.com/512/765/765487.png" class="leaf" style="left:10%; animation-delay: 1s; width:30px;">
+  <img src="https://cdn-icons-png.flaticon.com/512/765/765487.png" class="leaf" style="left:70%; animation-delay: 3s; width:40px;">
+  <img src="https://cdn-icons-png.flaticon.com/512/765/765487.png" class="leaf" style="left:40%; animation-delay: 5s; width:35px;">
+
+  <!-- ✨ Floating particles -->
+  <script>
+    for (let i = 0; i < 25; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.top = Math.random() * 100 + 'vh';
+      particle.style.animationDelay = Math.random() * 10 + 's';
+      document.body.appendChild(particle);
+    }
+  </script>
+
+  <div class="container">
+    <h2>🌾 Crop Recommendation System</h2>
+    <form id="cropForm">
+      <label>Soil Type:</label>
+      <select name="soil_type" id="soil_type" required>
+        <option value="">Select Soil</option>
+        <option>Alluvial</option>
+        <option>Black</option>
+        <option>Red</option>
+        <option>Laterite</option>
+        <option>Arid</option>
+        <option>Sandy</option>
+        <option>Mountain</option>
+        <option>Loamy</option>
+        <option>Clayey</option>
+      </select>
+
+      <label>Season:</label>
+      <select name="season" id="season" required>
+        <option value="">Select Season</option>
+        <option>Kharif</option>
+        <option>Rabi</option>
+        <option>Zaid</option>
+      </select>
+
+      <label>State:</label>
+      <input type="text" name="place" id="place" placeholder="Enter your state" required>
+
+      <button type="submit">🌱 Get Recommendation</button>
+    </form>
+
+    <div class="loader" id="loader"></div>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById("cropForm");
+    const loader = document.getElementById("loader");
+    const resultDiv = document.getElementById("result");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      resultDiv.textContent = "";
+      resultDiv.style.opacity = 0;
+      loader.style.display = "block";
+
+      const soilValue = document.getElementById("soil_type").value;
+      const seasonValue = document.getElementById("season").value;
+      const stateValue = document.getElementById("place").value;
+
+      try {
+        const response = await fetch("http://localhost:5001/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            soil_type: soilValue,
+            season: seasonValue,
+            place: stateValue
+          })
+        });
+
+        const result = await response.json();
+        loader.style.display = "none";
+
+        if (result.recommended_crop) {
+          resultDiv.textContent = `✅ Recommended Crop: ${result.recommended_crop}`;
+        } else if (result.error) {
+          resultDiv.textContent = `⚠️ ${result.error}`;
+        } else {
+          resultDiv.textContent = "❌ No recommendation found.";
+        }
+
+        resultDiv.style.animation = "fadeUp 1s forwards";
+
+      } catch (error) {
+        console.error("Error fetching recommendation:", error);
+        loader.style.display = "none";
+        resultDiv.textContent = "⚠️ Error connecting to recommendation system.";
+        resultDiv.style.animation = "fadeUp 1s forwards";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+<script>
+  const socket = io("http://localhost:4000");
+
+  fetch("/api/user")
+    .then(res => res.json())
+    .then(user => {
+      if (user.success) socket.emit("register", user.username);
+    });
+
+  socket.on("notification", data => {
+    const box = document.createElement("div");
+    box.style.position = "fixed";
+    box.style.bottom = "20px";
+    box.style.right = "20px";
+    box.style.background = "#4CAF50";
+    box.style.color = "#fff";
+    box.style.padding = "15px 20px";
+    box.style.borderRadius = "10px";
+    box.style.fontFamily = "Poppins, sans-serif";
+    box.style.boxShadow = "0 0 10px rgba(0,0,0,0.3)";
+    box.innerHTML = `<b>${data.title}</b><br>${data.body}`;
+    document.body.appendChild(box);
+    setTimeout(() => box.remove(), 7000);
+  });
+</script>

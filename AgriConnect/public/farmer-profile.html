@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Farmer Profile - AgriConnect</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #eef7ef;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            margin: 30px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #1b5e20;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="find-farmers.html" class="back-btn">← Back to Farmers List</a>
+    <div id="profile" class="profile-card">Loading...</div>
+
+    <script>
+        async function loadProfile() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get("id");
+            if (!id) {
+                document.getElementById("profile").innerText = "Farmer not found.";
+                return;
+            }
+
+            try {
+                const res = await fetch(`/api/farmers/${id}`);
+                const farmer = await res.json();
+                document.getElementById("profile").innerHTML = `
+  <img src="${farmer.image || 'default.png'}" alt="Profile Image" width="120" style="border-radius: 50%; border: 3px solid #2e7d32;">
+  <h2>${farmer.name || 'Unnamed Farmer'}</h2>
+  <p><strong>Location:</strong> ${farmer.location || 'Not specified'}</p>
+  <p><strong>Products:</strong> ${farmer.products || 'N/A'}</p>
+  <p><strong>Community/FPO:</strong> ${farmer.fpo || 'N/A'}</p>
+  <p><strong>Certifications:</strong> ${farmer.cert || 'N/A'}</p>
+  <p><strong>Languages:</strong> ${farmer.languages || 'N/A'}</p>
+  <p><strong>Contact:</strong> ${farmer.contact || 'N/A'}</p>
+`;
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById("profile").innerText = "Error loading farmer profile.";
+            }
+        }
+
+        loadProfile();
+    </script>
+</body>
+
+</html>

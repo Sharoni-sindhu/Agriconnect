@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-translate="title">About Us | AgriConnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="language.js" defer></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f9fdf9;
+      color: #2c3e1e;
+      line-height: 1.6;
+    }
+
+    /* Objectives & Goals Section */
+    .section-flex.reverse {
+      flex-direction: row-reverse;
+      align-items: flex-start;
+      /* aligns image and text properly at top */
+    }
+
+    .section-flex.reverse .section-text {
+      text-align: left;
+      padding-left: 20px;
+      /* shift text slightly to right */
+    }
+
+    .section-flex.reverse h2 {
+      text-align: left;
+      /* heading aligned with text */
+      margin-bottom: 15px;
+      /* smaller margin for heading and text */
+    }
+
+
+    /* General section spacing reduction */
+    section {
+      padding: 35px 8%;
+      /* slightly smaller padding for smooth flow */
+      margin-bottom: 20px;
+      /* smaller margin between sections */
+    }
+
+    /* Reduce padding for smoother flow */
+    section {
+      padding: 40px 8%;
+      /* was 60px 10% */
+      margin: 0 auto;
+    }
+
+    /* Reusable section-flex */
+    .section-flex {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      /* smaller gap */
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      /* reduced space between sections */
+    }
+
+    .section-flex img {
+      flex: 1;
+      max-width: 420px;
+      /* slightly smaller */
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .section-text {
+      flex: 1;
+      text-align: left;
+      /* ensures proper alignment */
+    }
+
+    /* Alternate layout */
+    .section-flex.reverse {
+      flex-direction: row-reverse;
+    }
+
+    /* Contact section tighter */
+    .contact-info {
+      padding: 10px;
+      /* was 30px */
+      margin-top: 10px;
+    }
+
+    /* Footer tighter */
+    footer {
+      margin-top: 10px;
+      /* was 50px */
+    }
+
+    /* Make sustainable farming image smaller */
+    .section-flex img[alt="Sustainable farming"] {
+      max-width: 300px;
+      /* adjust size as needed */
+      flex: 0 0 auto;
+      /* prevent it from stretching */
+    }
+
+    .p1 {
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: white;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #eaeaea;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 10%;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      margin-bottom: 20px;
+      color: #2f6033;
+      text-align: center;
+    }
+
+    p {
+      color: #444;
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .about img {
+      flex: 1;
+      max-width: 480px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    /* Why Choose Us */
+    .why-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .why-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .why-card img {
+      width: 60px;
+      margin-bottom: 12px;
+    }
+
+    .why-card h3 {
+      margin-bottom: 8px;
+      color: #f39c12;
+    }
+
+
+
+    /* Contact Section */
+    .contact-info {
+      background: #2f6033;
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 750px;
+      margin: auto;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-info p {
+      margin: 8px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 25px;
+      background: #f39c12;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #cf730a;
+    }
+
+    /* Footer */
+    footer {
+      background: #1c3d21;
+      color: #ddd;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about img {
+        max-width: 100%;
+      }
+
+      .team-member {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <label for="languageSelect" data-translate="language_label">Language</label>
+  <select id="languageSelect">
+    <option value="en">English</option>
+    <option value="hi">हिन्दी</option>
+    <option value="te">తెలుగు</option>
+    <option value="ta">தமிழ்</option>
+  </select>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>About AgriConnect</h1>
+      <p>Empowering Farmers | Connecting Communities | Delivering Freshness</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about">
+    <img src="farmers.jpg" alt="Farmers">
+    <div class="about-text">
+      <h2>Who We Are</h2>
+      <p>
+        AgriConnect is a digital marketplace designed to connect farmers directly with consumers.
+        We eliminate middlemen, ensure fair prices for farmers, and provide fresh, organic produce
+        for consumers. Our platform is built on trust, transparency, and sustainability, making
+        agriculture more profitable and accessible.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section-flex reverse">
+    <img src="sustainable_farming.jpg" alt="Why Choose Us">
+    <div class="section-text">
+      <h2>Why Choose Us?</h2>
+      <p>
+        Choosing AgriConnect means choosing trust, sustainability, and quality.
+        We provide complete transparency about where your food comes from, support local farmers,
+        and deliver products that are eco-friendly and healthy for your family.
+        With us, every purchase contributes to a better livelihood for farmers and
+        a greener future.
+      </p>
+    </div>
+  </section>
+
+  <!-- Objectives & Goals -->
+  <section>
+    <div class="section-flex">
+      <img src="objective.jpg" alt="Sustainable farming">
+      <div class="section-text">
+        <h2>Our Objectives & Goals</h2>
+        <p>
+          🌱 Empower farmers by providing direct access to markets and fair earnings. <br><br>
+          🏡 Deliver fresh, seasonal, and certified organic produce to consumers. <br><br>
+          🌍 Promote sustainable farming practices to protect our environment. <br><br>
+          💡 Use technology to revolutionize agriculture and make farm-to-table seamless.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section>
+    <h2>Get in Touch</h2>
+    <div class="contact-info">
+      <p1><b>📍 Address:</b> AgriConnect HQ, Hyderabad, India</p1><br>
+      <p1><b>📞 Phone:</b> +91 98765 43210</p1><br>
+      <p1><b>✉️ Email:</b> agriconnect.greenlinker@gmail.com</p1><br>
+      <p1><b>🌐 Website:</b> www.agriconnect.com</p1><br>
+      <a href="index.html" class="btn">← Back to Home</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 AgriConnect. All Rights Reserved.
+  </footer>
+<script src="language.js" defer></script>
+
+</body>
+
+</html>

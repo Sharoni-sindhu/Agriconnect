@@ -1,0 +1,40 @@
+{
+  "name": "argi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "connect-mongo": "^5.1.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "flask": "^0.2.10",
+    "i18n": "^0.15.2",
+    "mongoose": "^8.19.2",
+    "multer": "^2.0.2",
+    "node-fetch": "^2.7.0",
+    "socket.io": "^4.8.1"
+  },
+  "description": "AgriConnect is an open-source platform designed to revolutionize the Indian agro industry by eliminating intermediaries, stabilizing prices for consumers, and ensuring profit and respect for farmers.\r ## 📚 Reference",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p-ameker/AgriConnect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/p-ameker/AgriConnect/issues"
+  },
+  "homepage": "https://github.com/p-ameker/AgriConnect#readme"
+}

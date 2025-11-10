@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Find Farmers - AgriConnect</title>
+  <style>
+    /* 🌿 General Page Styling */
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f1f8f2;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      background: linear-gradient(90deg, #2e7d32, #388e3c);
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    /* 🔍 Search Bar */
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .search-bar input {
+      width: 70%;
+      padding: 12px 16px;
+      border: 2px solid #2e7d32;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      transition: 0.3s ease;
+      background-color: #fff;
+    }
+
+    .search-bar input:focus {
+      border-color: #1b5e20;
+      box-shadow: 0 0 8px rgba(46, 125, 50, 0.3);
+    }
+
+    /* 🧑‍🌾 Farmer Grid */
+    .farmers-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    /* 🌾 Farmer Card */
+    .farmer-card {
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .farmer-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    /* 🖼️ Optional Image Placeholder */
+    .farmer-img {
+      height: 180px;
+      background: linear-gradient(135deg, #a5d6a7, #81c784);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 60px;
+    }
+
+    /* 👤 Farmer Details */
+    .farmer-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .farmer-info h3 {
+      margin: 10px 0 5px;
+      color: #2e7d32;
+      font-size: 20px;
+    }
+
+    .farmer-info p {
+      margin: 6px 0;
+      font-size: 15px;
+      color: #555;
+    }
+
+    .farmer-info p strong {
+      color: #1b5e20;
+    }
+
+    /* 🔙 Back Button */
+    .back-btn {
+      display: inline-block;
+      background-color: #2e7d32;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 15px;
+      transition: background 0.3s;
+      margin: 20px;
+    }
+
+    .back-btn:hover {
+      background-color: #1b5e20;
+    }
+
+    /* 🪶 Responsive */
+    @media (max-width: 600px) {
+      .search-bar input {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🌾 Find Farmers</h1>
+  </header>
+
+  <div class="container">
+    <a href="buyers.html" class="back-btn">← Back to Buyers Page</a>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search farmers by name, email, or phone...">
+    </div>
+
+    <div id="farmersList" class="farmers-container"></div>
+  </div>
+
+  <script>
+    let allFarmers = [];
+
+    async function loadFarmers() {
+      const container = document.getElementById("farmersList");
+      container.innerHTML = "<p>Loading farmers...</p>";
+
+      try {
+        const res = await fetch("/api/farmers");
+        const farmers = await res.json();
+        allFarmers = farmers;
+        renderFarmers(farmers);
+      } catch (err) {
+        console.error(err);
+        container.innerHTML = "<p>Error loading farmers.</p>";
+      }
+    }
+
+    function renderFarmers(farmers) {
+      const container = document.getElementById("farmersList");
+
+      if (!farmers.length) {
+        container.innerHTML = "<p>No farmers found.</p>";
+        return;
+      }
+
+      container.innerHTML = farmers.map(f => `
+        <div class="farmer-card" onclick="viewFarmer('${f._id}')">
+          <div class="farmer-img">👨‍🌾</div>
+          <div class="farmer-info">
+            <h3>${f.username}</h3>
+            <p><strong>Email:</strong> ${f.email}</p>
+            <p><strong>Phone:</strong> ${f.phone || 'Not available'}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // 🔍 Live search filter
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+      const term = e.target.value.toLowerCase();
+      const filtered = allFarmers.filter(f =>
+        f.username.toLowerCase().includes(term) ||
+        f.email.toLowerCase().includes(term) ||
+        (f.phone && f.phone.toLowerCase().includes(term))
+      );
+      renderFarmers(filtered);
+    });
+
+    function viewFarmer(id) {
+      window.location.href = `farmer-profile.html?id=${id}`;
+    }
+
+    loadFarmers();
+  </script>
+</body>
+
+</html>

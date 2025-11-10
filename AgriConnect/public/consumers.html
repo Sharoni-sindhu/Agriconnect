@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📦 Consumers Dashboard | Green Fields</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    :root {
+      --primary: #1E8562;
+      --secondary: #4ABDAC;
+      --accent: #f0f9f5;
+      --surface: #ffffff;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background: var(--accent);
+      color: #333;
+    }
+
+    aside.sidebar {
+      width: 250px;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 30px 20px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+    }
+
+    aside.sidebar h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--secondary);
+    }
+
+    aside.sidebar nav a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    aside.sidebar nav a:hover,
+    aside.sidebar nav a.active {
+      background: var(--secondary);
+      color: var(--primary);
+      transform: scale(1.05);
+    }
+
+    aside.sidebar small {
+      text-align: center;
+      opacity: 0.7;
+    }
+
+    header {
+      margin-left: 250px;
+      background: var(--surface);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      border-bottom: 3px solid var(--secondary);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logout-btn {
+      background: var(--secondary);
+      color: var(--primary);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .logout-btn:hover {
+      background: var(--primary);
+      color: var(--surface);
+      transform: scale(1.05);
+    }
+
+    main {
+      flex: 1;
+      margin-left: 250px;
+      padding: 40px;
+    }
+
+    h1,
+    h2 {
+      color: var(--primary);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border-left: 6px solid var(--secondary);
+      transition: 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .stat-card h3 {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+
+    .stat-card .value {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .chart-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      max-width: 640px;
+      margin: 0 auto 40px;
+    }
+
+    #recentOrders {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .recent-card {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      transition: 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .recent-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .recent-card img {
+      width: 100%;
+      height: 140px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 12px;
+    }
+
+    .recent-card h4 {
+      color: var(--primary);
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    .recent-card p,
+    .recent-card small {
+      text-align: center;
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <aside class="sidebar">
+    <div>
+      <h2>Green Fields</h2>
+      <nav>
+        <a href="consumers.html" class="active">Dashboard</a>
+        <a href="consumer-profile.html">Profile</a>
+        <a href="orders.html">My Orders</a>
+        <a href="buyers.html">Buy Products</a>
+      </nav>
+    </div>
+    <div><small>&copy; 2025 Green Fields</small></div>
+  </aside>
+
+  <div style="flex:1;">
+    <header>
+      <div><b>Consumer Dashboard</b></div>
+      <div>
+        <span id="welcomeText"><b>Welcome, User</b></span>
+        <button class="logout-btn" id="logoutBtn"><a href="login.html">Logout</a></button>
+      </div>
+    </header>
+
+    <main>
+      <div class="chart-card">
+        <h2>Spending Distribution</h2>
+        <canvas id="spendingChart" height="180"></canvas>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <h3>Total Orders</h3>
+          <div class="value" id="totalOrders">0</div>
+        </div>
+        <div class="stat-card">
+          <h3>Total Spent</h3>
+          <div class="value" id="totalSpent">₹0</div>
+        </div>
+        <div class="stat-card">
+          <h3>Favorite Category</h3>
+          <div class="value" id="favCategory">-</div>
+        </div>
+      </div>
+
+      <h2>Recent Orders</h2>
+      <div id="recentOrders">
+        <p style="text-align:center; color:#888;">Loading recent orders...</p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.onclick = () => {
+      fetch("http://localhost:4000/logout", { method: "POST", credentials: "include" })
+        .then(() => window.location.href = "login.html");
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadConsumerData();
+    });
+
+    async function loadConsumerData() {
+      try {
+        const resOrders = await fetch("http://localhost:4000/orders", { credentials: "include" });
+        const orders = await resOrders.json();
+
+        const resProducts = await fetch("http://localhost:4000/products", { credentials: "include" });
+        const products = await resProducts.json();
+
+        let totalSpent = 0;
+        const categoryTotals = {};
+
+        orders.forEach(o => {
+          const p = products.find(prod => prod.name === o.productName) || {};
+          o.productDetails = p;
+
+          totalSpent += p.price || 0;
+
+          const cat = p.category?.trim() || "Other";
+          categoryTotals[cat] = (categoryTotals[cat] || 0) + (p.price || 0);
+        });
+
+        document.getElementById("totalOrders").textContent = orders.length;
+        document.getElementById("totalSpent").textContent = `₹${totalSpent}`;
+        document.getElementById("favCategory").textContent =
+          Object.entries(categoryTotals).sort((a, b) => b[1] - a[1])[0]?.[0] || "-";
+
+        const container = document.getElementById("recentOrders");
+        container.innerHTML = "";
+        if (!orders.length) {
+          container.innerHTML = "<p style='text-align:center; color:#888;'>No orders yet.</p>";
+        } else {
+          orders.slice(0, 6).forEach(o => {
+            const p = o.productDetails || {};
+            const card = document.createElement("div");
+            card.className = "recent-card";
+            card.innerHTML = `
+              <img src="${p.image || 'https://via.placeholder.com/150'}" alt="${p.name || 'Product'}">
+              <h4>${p.name || o.productName || "Unnamed Product"}</h4>
+              <p><b>₹${p.price || 0}</b> • ${p.category || "Other"}</p>
+              <small>Ordered on: ${new Date(o.createdAt).toLocaleDateString()}</small>
+            `;
+            container.appendChild(card);
+          });
+        }
+
+        renderChart(categoryTotals);
+
+      } catch (err) {
+        console.error("Error loading dashboard:", err);
+        document.getElementById("recentOrders").innerHTML =
+          "<p style='text-align:center; color:#f55;'>Failed to load dashboard.</p>";
+      }
+    }
+
+    function renderChart(categoryTotals) {
+      const ctx = document.getElementById("spendingChart");
+      if (!ctx) return;
+
+      const labels = Object.keys(categoryTotals);
+      const data = Object.values(categoryTotals);
+
+      const colors = {
+        "Fruits": "#ff6384",
+        "Vegetables": "#36a2eb",
+        "Grains": "#ffce56",
+        "Dairy": "#4bc0c0",
+        "Other": "#9966ff"
+      };
+
+      const bgColors = labels.map(c => colors[c] || "#a3c14a");
+
+      new Chart(ctx, {
+        type: "doughnut",
+        data: {
+          labels: labels,
+          datasets: [{
+            data: data,
+            backgroundColor: bgColors,
+            borderWidth: 2,
+            hoverOffset: 10
+          }]
+        },
+        options: {
+          plugins: {
+            legend: { position: 'bottom', labels: { boxWidth: 15 } }
+          },
+          cutout: "60%"
+        }
+      });
+    }
+    
+  </script>
+</body>
+</html>

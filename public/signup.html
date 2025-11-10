@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenFields - Sign Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('seed.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(3px);
+      height: 100vh;
+    }
+
+    .login-container {
+      background: #ffffff;
+      width: 400px;
+      max-width: 90%;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #2e7d32;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1.5px solid #dcdcdc;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      background-color: #fafafa;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #66bb6a;
+      box-shadow: 0 0 5px rgba(102, 187, 106, 0.4);
+      background-color: #fff;
+      outline: none;
+    }
+
+    /* Buyer / Seller toggle buttons */
+    .role-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .role-btn {
+      flex: 1;
+      margin: 0 5px;
+      padding: 12px 0;
+      background: #f4f4f4;
+      border: 1.5px solid #cfd8dc;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      color: #333;
+    }
+
+    .role-btn.active {
+      background: linear-gradient(135deg, #66bb6a, #43a047);
+      color: white;
+      border-color: #43a047;
+    }
+
+    .role-btn:hover {
+      background-color: #e8f5e9;
+    }
+
+    /* Recovery note */
+    .recovery-note {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    label {
+      display: block;
+      color: #2e7d32;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #66bb6a, #43a047);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(67, 160, 71, 0.3);
+    }
+
+    .redirect {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .redirect a {
+      color: #2e7d32;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .redirect a:hover {
+      text-decoration: underline;
+      color: #1b5e20;
+    }
+
+    /* Success popup */
+    .success-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.45);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .success-container.show {
+      display: flex;
+    }
+
+    .success-box {
+      background: #fff;
+      padding: 35px 45px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      animation: fadeIn 0.5s ease;
+    }
+
+    .success-box h2 {
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+
+    .success-box p {
+      color: #555;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .success-box button {
+      background: linear-gradient(135deg, #66bb6a, #43a047);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .success-box button:hover {
+      background: linear-gradient(135deg, #57a05a, #2e7d32);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <h1>Create Your Account</h1>
+
+    <form class="signup-form">
+      <!-- Username -->
+      <div class="form-group">
+        <input type="text" name="username" placeholder="👤 Username" required>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <input type="password" name="password" placeholder="🔑 Password" required>
+      </div>
+
+      <!-- Buyer / Seller -->
+      <div class="role-buttons">
+        <div class="role-btn" data-role="buyer">Buyer</div>
+        <div class="role-btn" data-role="seller">Seller</div>
+      </div>
+      <input type="hidden" name="role" id="selectedRole" required>
+
+      <!-- Recovery Section -->
+      <p class="recovery-note">To help recover your account in the future, please choose a security question below:</p>
+
+      <div class="form-group">
+        <label for="securityQuestion">Security Question</label>
+        <select name="securityQuestion" id="securityQuestion" required>
+          <option value="">-- Choose a question --</option>
+          <option value="pet">What is your pet's name?</option>
+          <option value="school">What was your first school name?</option>
+          <option value="mother">What is your mother's maiden name?</option>
+        </select>
+      </div>
+
+      <!-- Answer -->
+      <div class="form-group">
+        <input type="text" name="securityAnswer" placeholder="Your Answer" required>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <p class="redirect">Already have an account? <a href="login.html">Login here</a></p>
+    <p class="redirect"><a href="index.html">⬅️ Back to Home</a></p>
+  </div>
+
+  <!-- Success Popup -->
+  <div class="success-container" id="successMessage">
+    <div class="success-box">
+      <h2>🎉 Signup Successful!</h2>
+      <p>Welcome to GreenFields 🌱. Your account has been created.</p>
+      <button onclick="closeSuccess()">OK</button>
+    </div>
+  </div>
+
+  <!-- Unchanged JS -->
+  <script>
+    document.querySelector(".signup-form").addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch("/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+          document.getElementById("successMessage").classList.add("show");
+          launchConfetti();
+        } else {
+          alert(result.message);
+        }
+      } catch (err) {
+        console.error("❌ Signup error:", err);
+        alert("Server error. Please try again.");
+      }
+    });
+
+    function closeSuccess() {
+      document.getElementById("successMessage").classList.remove("show");
+      window.location.href = "login.html";
+    }
+
+    function launchConfetti() {
+      const duration = 2 * 1000;
+      const end = Date.now() + duration;
+      (function frame() {
+        confetti({
+          particleCount: 5,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+        if (Date.now() < end) requestAnimationFrame(frame);
+      })();
+    }
+
+    // Role toggle functionality (does not modify original logic)
+    const roleButtons = document.querySelectorAll(".role-btn");
+    const hiddenRole = document.getElementById("selectedRole");
+
+    roleButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        roleButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        hiddenRole.value = btn.dataset.role;
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</body>
+
+</html>

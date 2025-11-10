@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Products | GreenFields</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: url("buyers.jpg") no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+    }
+
+    footer {
+      background: #cf730a;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: auto;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background: #cf730a;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 22px;
+      color: white;
+    }
+
+    .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li {
+      display: inline;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #bbdefb;
+    }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+
+    #searchBox {
+      padding: 12px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      font-size: 16px;
+    }
+
+    #productList {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* ===== PRODUCT CARD ===== */
+    .product {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+      animation: fadeIn 0.6s ease-in;
+    }
+
+    .product:hover {
+      transform: scale(1.03);
+    }
+
+    .product h3 {
+      color: #cf730a;
+      margin-top: 0;
+    }
+
+    .product img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-top: 10px;
+      transition: transform 0.3s;
+    }
+
+    .product img:hover {
+      transform: scale(1.05);
+    }
+
+    .action-btn {
+      margin-top: 12px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .edit-btn {
+      background: #10b981;
+    }
+
+    .delete-btn {
+      background: #dc2626;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <label for="languageSelect" data-translate="language_label">Language</label>
+  <select id="languageSelect">
+    <option value="en">English</option>
+    <option value="hi">हिन्दी</option>
+    <option value="te">తెలుగు</option>
+    <option value="ta">தமிழ்</option>
+  </select>
+
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <h1>Green Fields</h1>
+    <ul class="nav-links">
+      <li><a href="farmers.html">Home</a></li>
+      <li><a href="sellers.html">Add Product</a></li>
+      <li><a href="my-products.html" class="active">My Products</a></li>
+      <li><a href="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <h2>🌾 My Products</h2>
+    <input type="text" id="searchBox" placeholder="🔍 Search my products...">
+    <div id="productList"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 GreenFields. All Rights Reserved.
+  </footer>
+
+  <script>
+    const loggedInFarmer = "Sharoni"; // TODO: Replace with session value from backend
+
+    async function loadMyProducts() {
+      try {
+        const res = await fetch("/products");
+        const products = await res.json();
+        const list = document.getElementById("productList");
+
+        list.innerHTML = "";
+        const myProducts = products.filter(p => p.farmerId === loggedInFarmer);
+
+        if (myProducts.length === 0) {
+          list.innerHTML = "<p style='text-align:center; color:#888;'>You haven’t added any products yet.</p>";
+          return;
+        }
+
+        myProducts.forEach(p => {
+          const div = document.createElement("div");
+          div.className = "product";
+          div.innerHTML = `
+            <h3>${p.name}</h3>
+            <p><strong>Price:</strong> ₹${p.price}</p>
+            <p><strong>Quantity:</strong> ${p.quantity}</p>
+            <p><strong>Description:</strong> ${p.description || "N/A"}</p>
+            ${p.image ? `<img src="${p.image}" alt="Product">` : ""}
+            <button class="action-btn edit-btn" onclick="editProduct('${p.id}')">✏ Edit</button>
+            <button class="action-btn delete-btn" onclick="deleteProduct('${p.id}')">🗑 Delete</button>
+          `;
+          list.appendChild(div);
+        });
+      } catch (err) {
+        console.error("Error loading products:", err);
+      }
+    }
+
+    function editProduct(id) {
+      alert("✏ Edit product: " + id);
+      // You can redirect to an edit page
+    }
+
+    async function deleteProduct(id) {
+      if (confirm("Are you sure you want to delete this product?")) {
+        await fetch(`/products/${id}`, { method: "DELETE" });
+        loadMyProducts();
+      }
+    }
+
+    // Search filter
+    document.getElementById("searchBox").addEventListener("input", e => {
+      const query = e.target.value.toLowerCase();
+      document.querySelectorAll(".product").forEach(p => {
+        p.style.display = p.textContent.toLowerCase().includes(query) ? "" : "none";
+      });
+    });
+
+    loadMyProducts();
+  </script>
+  <script src="/language.js"></script>
+
+</body>
+
+</html>

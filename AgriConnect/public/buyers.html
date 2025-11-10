@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy Products - Green Fields</title>
+  <style>
+    /* ===== COLOR VARIABLES ===== */
+    :root {
+      --primary: #1E8562;
+      --secondary: #4ABDAC;
+      --accent: #f0f9f5;
+      --surface: #ffffff;
+      --highlight: #1E8562;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      --text: #333;
+      --background: #f0f9f5;
+    }
+
+    /* ===== GENERAL ===== */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--accent);
+      color: #3b2f2f;
+      min-height: 100vh;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 20px 0;
+      color: var(--primary);
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background: var(--primary);
+      color: var(--surface);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 25px;
+      box-shadow: var(--shadow);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 20px;
+      color: var(--secondary);
+    }
+
+    .navbar-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+    }
+
+    .navbar-links a {
+      text-decoration: none;
+      color: var(--surface);
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .navbar-links a:hover {
+      color: var(--secondary);
+    }
+
+    /* ===== SEARCH BOX ===== */
+    #searchBox {
+      padding: 10px;
+      width: 60%;
+      max-width: 400px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      transition: 0.2s;
+    }
+
+    #searchBox:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 8px rgba(163, 193, 74, 0.4);
+    }
+
+    /* ===== PRODUCT GRID ===== */
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      padding: 30px 50px;
+      justify-items: center;
+    }
+
+    .product {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px; /* Fixed consistent height */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(107, 66, 38, 0.25);
+}
+
+.product img {
+  width: 100%;
+  height: 160px; /* Same size for all images */
+  object-fit: cover; /* Keeps proportion, fills box */
+  border-radius: 12px;
+  margin: 10px 0;
+}
+
+.product h3 {
+  font-size: 18px;
+  color: var(--primary);
+  margin: 10px 0 5px;
+}
+
+.product p {
+  font-size: 14px;
+  color: #555;
+  margin: 4px 0;
+}
+
+
+    /* Ensures Contact Seller button stays aligned */
+.buy-btn {
+  margin-top: auto;
+  background: linear-gradient(135deg, var(--secondary), #c7e58f);
+  color: var(--primary);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.buy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #a3c14a, #c7e58f);
+  color: var(--primary);
+}
+    /* ===== MODALS ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background: var(--surface);
+      padding: 25px;
+      border-radius: 16px;
+      width: 350px;
+      max-width: 90%;
+      text-align: left;
+      box-shadow: var(--shadow);
+    }
+
+    .close {
+      float: right;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .contact-seller {
+      display: inline-block;
+      margin: 5px 5px 5px 0;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--surface);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .email-btn {
+      background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+    }
+
+    .call-btn {
+      background: linear-gradient(135deg, #81c784, #a5d6a7);
+    }
+
+    .order-btn {
+      background: linear-gradient(135deg, #f4a261, #e76f51);
+    }
+
+    .contact-seller:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    /* Order form inputs */
+    .order-form input,
+    .order-form select {
+      margin-bottom: 10px;
+      padding: 8px;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .submit-order {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: 600;
+    }
+
+    .submit-order:hover {
+      background: #176b4b;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">🌾 Green Fields</div>
+    <ul class="navbar-links">
+      <li><a id="homeLink" href="#">Home</a></li>
+      <li><a href="orders.html">My Orders</a></li>
+      <li><a href="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <h2>Available Products</h2>
+
+  <div style="text-align:center; margin:20px;">
+    <input type="text" id="searchBox" placeholder="Search products...">
+  </div>
+
+  <main>
+    <div class="product-container" id="productList"></div>
+  </main>
+
+  <!-- ===== SELLER MODAL ===== -->
+  <div id="sellerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('sellerModal')">&times;</span>
+      <h2>Seller Info</h2>
+      <div id="sellerInfo"></div>
+      <div id="contactButtons" style="margin-top:15px;"></div>
+    </div>
+  </div>
+
+  <!-- ===== ORDER FORM MODAL ===== -->
+  <div id="orderModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('orderModal')">&times;</span>
+      <h2>Place Your Order</h2>
+      <form id="orderForm" class="order-form">
+        <input type="text" id="buyerName" placeholder="Your Name" required />
+        <input type="email" id="buyerEmail" placeholder="Your Email" required />
+        <input type="tel" id="buyerPhone" placeholder="Your Phone Number" required />
+        <input type="text" id="buyerAddress" placeholder="Your Address" required />
+        <input type="number" id="buyerQuantity" placeholder="Quantity" required />
+        <select id="paymentMode" required>
+          <option value="" disabled selected>Select Payment Mode</option>
+          <option value="Cash on Delivery">Cash on Delivery</option>
+          <option value="UPI">UPI</option>
+          <option value="Card">Card</option>
+        </select>
+        <button type="submit" class="submit-order">Buy Now</button>
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+    let selectedProduct = null;
+
+    async function loadProducts() {
+      try {
+        const res = await fetch("/products");
+        const products = await res.json();
+        const list = document.getElementById("productList");
+        list.innerHTML = "";
+
+        if (!products.length) {
+          list.innerHTML = "<p style='text-align:center; color:#888;'>No products available right now.</p>";
+          return;
+        }
+
+        products.forEach(p => {
+          const div = document.createElement("div");
+          div.className = "product";
+          div.innerHTML = `
+            <h3>${p.name}</h3>
+            <p><strong>Price:</strong> ₹${p.price}</p>
+            <p><strong>Quantity:</strong> ${p.quantity}</p>
+            <p><strong>Description:</strong> ${p.description || "N/A"}</p>
+            ${p.image ? `<img src="${p.image}" alt="Product">` : ""}
+            <button class="buy-btn"
+              data-id="${p._id || p.id}"
+              data-name="${p.name}"
+              data-sellername="${p.sellerName || 'Unknown'}"
+              data-selleremail="${p.sellerEmail || 'Not Provided'}"
+              data-sellerphone="${p.sellerPhone || 'Not Provided'}">
+              Contact Seller
+            </button>
+          `;
+          list.appendChild(div);
+        });
+
+        document.querySelectorAll(".buy-btn").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const seller = {
+              sellerName: btn.getAttribute("data-sellername"),
+              sellerEmail: btn.getAttribute("data-selleremail"),
+              sellerPhone: btn.getAttribute("data-sellerphone"),
+              name: btn.getAttribute("data-name"),
+              id: btn.getAttribute("data-id")
+            };
+            selectedProduct = seller;
+            showSeller(seller);
+          });
+        });
+      } catch (err) {
+        console.error("Error loading products:", err);
+      }
+    }
+
+    function showSeller(product) {
+      const info = `
+        <strong>Name:</strong> ${product.sellerName}<br>
+        <strong>Email:</strong> ${product.sellerEmail}<br>
+        <strong>Phone:</strong> ${product.sellerPhone}
+      `;
+      document.getElementById("sellerInfo").innerHTML = info;
+
+      const buttons = `
+        <a href="mailto:${product.sellerEmail}" class="contact-seller email-btn">✉️ Email Seller</a>
+        <a href="tel:${product.sellerPhone}" class="contact-seller call-btn">📞 Call Seller</a>
+        <button class="contact-seller order-btn" onclick="openOrderForm()">🛒 Order Now</button>
+      `;
+      document.getElementById("contactButtons").innerHTML = buttons;
+      document.getElementById("sellerModal").style.display = "flex";
+    }
+
+    function openOrderForm() {
+      document.getElementById("sellerModal").style.display = "none";
+      document.getElementById("orderModal").style.display = "flex";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+
+    document.getElementById("orderForm").addEventListener("submit", async e => {
+  e.preventDefault();
+
+  if (!selectedProduct) {
+    alert("❌ Please select a product first.");
+    return;
+  }
+
+  const order = {
+    productId: selectedProduct.id,
+    quantity: document.getElementById("buyerQuantity").value,
+    address: document.getElementById("buyerAddress").value,
+    buyerName: document.getElementById("buyerName").value,
+    buyerEmail: document.getElementById("buyerEmail").value,
+    buyerPhone: document.getElementById("buyerPhone").value,
+    paymentMode: document.getElementById("paymentMode").value
+  };
+
+  try {
+    const res = await fetch("/api/place-order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(order)
+    });
+
+    const data = await res.json();
+
+    if (res.ok && data.success) {
+      alert("✅ Order placed successfully!");
+      closeModal("orderModal");
+      document.getElementById("orderForm").reset();
+    } else {
+      alert("❌ Failed to place order: " + (data.message || "Unknown error"));
+    }
+  } catch (err) {
+    console.error("Error placing order:", err);
+    alert("❌ Something went wrong while placing order.");
+  }
+});
+
+
+
+    document.getElementById("searchBox").addEventListener("input", e => {
+      const query = e.target.value.toLowerCase();
+      document.querySelectorAll(".product").forEach(p => {
+        p.style.display = p.textContent.toLowerCase().includes(query) ? "" : "none";
+      });
+    });
+
+    // Role-based home redirection
+    fetch('/api/user')
+      .then(async res => {
+        if (!res.ok) throw new Error("Unauthorized");
+        const user = await res.json();
+        const homeLink = document.getElementById('homeLink');
+        const role = user.role?.toLowerCase();
+
+        homeLink.href = (role === "seller") ? "farmers.html" : "consumers.html";
+        homeLink.addEventListener('click', e => {
+          e.preventDefault();
+          window.location.href = homeLink.href;
+        });
+      })
+      .catch(() => window.location.href = "login.html");
+
+    loadProducts();
+  </script>
+</body>
+
+</html>

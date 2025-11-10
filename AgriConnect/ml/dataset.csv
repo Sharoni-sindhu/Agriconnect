@@ -1,0 +1,1001 @@
+soil_type	season	state	crop
+Clayey	Rabi	Nagaland	Pulses
+Clayey	Rabi	Goa	Rice
+Black	Zaid	Tripura	Sorghum
+Sandy	Zaid	Sikkim	Watermelon
+Mountain	Kharif	Jammu and Kashmir	Barley
+Alluvial	Zaid	Arunachal Pradesh	Wheat
+Loamy	Zaid	Sikkim	Barley
+Alluvial	Rabi	West Bengal	Vegetables
+Clayey	Kharif	Haryana	Rice
+Alluvial	Rabi	Himachal Pradesh	Rice
+Loamy	Kharif	Manipur	Wheat
+Alluvial	Rabi	Sikkim	Vegetables
+Laterite	Zaid	Karnataka	Tea
+Clayey	Zaid	Maharashtra	Mustard
+Laterite	Kharif	Odisha	Rubber
+Alluvial	Kharif	Mizoram	Rice
+Clayey	Zaid	Meghalaya	Rice
+Black	Kharif	Arunachal Pradesh	Cotton
+Loamy	Rabi	Arunachal Pradesh	Vegetables
+Red	Rabi	Sikkim	Turmeric
+Laterite	Zaid	Rajasthan	Cashew
+Alluvial	Rabi	Goa	Sugarcane
+Sandy	Kharif	Manipur	Chickpea
+Laterite	Zaid	Gujarat	Rubber
+Sandy	Rabi	Andhra Pradesh	Maize
+Clayey	Kharif	Haryana	Rice
+Laterite	Kharif	Karnataka	Arecanut
+Clayey	Rabi	Maharashtra	Vegetables
+Loamy	Rabi	Delhi	Sugarcane
+Sandy	Zaid	Delhi	Maize
+Sandy	Rabi	Haryana	Muskmelon
+Mountain	Rabi	Madhya Pradesh	Tea
+Mountain	Zaid	Mizoram	Potato
+Laterite	Kharif	Delhi	Coffee
+Black	Kharif	Andhra Pradesh	Groundnut
+Clayey	Zaid	Assam	Vegetables
+Arid	Kharif	Madhya Pradesh	Barley
+Loamy	Kharif	Haryana	Rice
+Mountain	Rabi	Manipur	Millet
+Laterite	Rabi	Jammu and Kashmir	Coffee
+Red	Rabi	Delhi	Turmeric
+Laterite	Rabi	Haryana	Arecanut
+Mountain	Rabi	Jharkhand	Millet
+Arid	Kharif	Sikkim	Mustard
+Alluvial	Kharif	Tripura	Rice
+Sandy	Rabi	West Bengal	Maize
+Loamy	Zaid	Mizoram	Jute
+Laterite	Zaid	Delhi	Coffee
+Arid	Kharif	Assam	Cumin
+Black	Kharif	Punjab	Castor
+Sandy	Zaid	Jammu and Kashmir	Muskmelon
+Arid	Kharif	West Bengal	Cumin
+Alluvial	Zaid	Rajasthan	Wheat
+Sandy	Zaid	Assam	Muskmelon
+Arid	Kharif	Rajasthan	Mustard
+Clayey	Kharif	Arunachal Pradesh	Rice
+Sandy	Kharif	Arunachal Pradesh	Muskmelon
+Clayey	Kharif	Jharkhand	Pea
+Red	Kharif	Tripura	Turmeric
+Black	Kharif	Punjab	Sorghum
+Clayey	Zaid	Jharkhand	Pea
+Loamy	Kharif	Jharkhand	Rice
+Black	Rabi	Chhattisgarh	Castor
+Black	Zaid	West Bengal	Groundnut
+Black	Kharif	Tamil Nadu	Groundnut
+Mountain	Kharif	Assam	Tea
+Sandy	Kharif	Delhi	Sunflower
+Sandy	Zaid	Maharashtra	Wheat
+Arid	Kharif	Kerala	Castor
+Clayey	Rabi	Meghalaya	Vegetables
+Red	Kharif	Haryana	Chilli
+Loamy	Kharif	Rajasthan	Wheat
+Mountain	Zaid	Madhya Pradesh	Apple
+Mountain	Zaid	Uttar Pradesh	Apple
+Loamy	Zaid	Punjab	Wheat
+Mountain	Rabi	Karnataka	Potato
+Mountain	Kharif	Gujarat	Barley
+Sandy	Zaid	Assam	Sunflower
+Arid	Rabi	Bihar	Mustard
+Black	Kharif	Jammu and Kashmir	Sorghum
+Loamy	Rabi	Himachal Pradesh	Barley
+Sandy	Kharif	Madhya Pradesh	Maize
+Arid	Rabi	Kerala	Castor
+Sandy	Zaid	Andhra Pradesh	Sunflower
+Loamy	Zaid	Assam	Barley
+Arid	Kharif	Jharkhand	Barley
+Mountain	Rabi	Meghalaya	Millet
+Black	Zaid	Sikkim	Cotton
+Red	Zaid	Sikkim	Paddy
+Black	Zaid	Bihar	Castor
+Alluvial	Kharif	Madhya Pradesh	Jute
+Alluvial	Kharif	Delhi	Rice
+Mountain	Rabi	Delhi	Tea
+Red	Zaid	Manipur	Millet
+Arid	Rabi	Uttar Pradesh	Mustard
+Arid	Kharif	West Bengal	Mustard
+Mountain	Rabi	Delhi	Apple
+Black	Zaid	Arunachal Pradesh	Soybean
+Laterite	Kharif	Himachal Pradesh	Cashew
+Sandy	Rabi	West Bengal	Muskmelon
+Sandy	Rabi	Mizoram	Muskmelon
+Arid	Rabi	Tripura	Mustard
+Loamy	Zaid	Telangana	Sugarcane
+Black	Kharif	Meghalaya	Sorghum
+Clayey	Rabi	Goa	Pea
+Laterite	Kharif	Rajasthan	Cashew
+Alluvial	Zaid	Manipur	Wheat
+Clayey	Rabi	Tamil Nadu	Mustard
+Alluvial	Zaid	Goa	Maize
+Loamy	Rabi	Uttarakhand	Jute
+Loamy	Zaid	Karnataka	Jute
+Alluvial	Kharif	Uttarakhand	Rice
+Arid	Zaid	Telangana	Barley
+Black	Zaid	Maharashtra	Cotton
+Loamy	Zaid	Gujarat	Sugarcane
+Black	Rabi	Nagaland	Groundnut
+Alluvial	Rabi	Himachal Pradesh	Wheat
+Arid	Kharif	Odisha	Cumin
+Clayey	Zaid	Gujarat	Pulses
+Arid	Rabi	Uttar Pradesh	Moong
+Arid	Zaid	Kerala	Moong
+Sandy	Zaid	Punjab	Chickpea
+Laterite	Zaid	Andhra Pradesh	Coconut
+Laterite	Kharif	West Bengal	Rubber
+Red	Zaid	Uttar Pradesh	Turmeric
+Mountain	Zaid	Andhra Pradesh	Apple
+Black	Zaid	Rajasthan	Cotton
+Loamy	Zaid	Uttar Pradesh	Sugarcane
+Black	Zaid	Kerala	Sorghum
+Laterite	Rabi	Uttarakhand	Coconut
+Clayey	Kharif	West Bengal	Vegetables
+Clayey	Rabi	Karnataka	Vegetables
+Sandy	Rabi	Manipur	Muskmelon
+Mountain	Zaid	Jammu and Kashmir	Tea
+Alluvial	Kharif	Madhya Pradesh	Vegetables
+Clayey	Kharif	Madhya Pradesh	Vegetables
+Black	Zaid	Haryana	Groundnut
+Black	Rabi	Uttarakhand	Gram
+Mountain	Zaid	Uttar Pradesh	Tea
+Laterite	Kharif	Rajasthan	Coconut
+Black	Rabi	Rajasthan	Soybean
+Mountain	Rabi	Arunachal Pradesh	Barley
+Laterite	Zaid	Gujarat	Coffee
+Loamy	Kharif	Madhya Pradesh	Barley
+Red	Zaid	Bihar	Paddy
+Sandy	Kharif	Andhra Pradesh	Muskmelon
+Loamy	Zaid	Haryana	Barley
+Red	Zaid	Jharkhand	Ragi
+Arid	Kharif	Manipur	Barley
+Sandy	Zaid	Arunachal Pradesh	Maize
+Loamy	Rabi	Meghalaya	Rice
+Loamy	Kharif	Goa	Sugarcane
+Mountain	Rabi	Gujarat	Potato
+Arid	Kharif	Chhattisgarh	Bajra
+Mountain	Rabi	West Bengal	Potato
+Mountain	Zaid	Punjab	Millet
+Red	Zaid	Andhra Pradesh	Ragi
+Clayey	Zaid	Goa	Pulses
+Clayey	Kharif	Bihar	Pulses
+Clayey	Zaid	Tamil Nadu	Vegetables
+Sandy	Rabi	Haryana	Muskmelon
+Black	Kharif	Uttar Pradesh	Cotton
+Sandy	Rabi	Andhra Pradesh	Watermelon
+Red	Kharif	Uttar Pradesh	Millet
+Sandy	Zaid	Madhya Pradesh	Wheat
+Red	Kharif	Sikkim	Paddy
+Loamy	Rabi	Gujarat	Rice
+Sandy	Zaid	Punjab	Muskmelon
+Mountain	Zaid	Rajasthan	Potato
+Black	Kharif	Madhya Pradesh	Castor
+Red	Zaid	Tripura	Paddy
+Black	Rabi	Tripura	Sorghum
+Black	Kharif	Jharkhand	Castor
+Arid	Zaid	Gujarat	Moong
+Clayey	Rabi	Uttarakhand	Mustard
+Black	Rabi	Himachal Pradesh	Soybean
+Mountain	Zaid	Himachal Pradesh	Barley
+Red	Rabi	West Bengal	Lentil
+Loamy	Rabi	Manipur	Rice
+Sandy	Zaid	Bihar	Chickpea
+Loamy	Rabi	Gujarat	Jute
+Loamy	Kharif	Odisha	Wheat
+Red	Rabi	Tamil Nadu	Chilli
+Mountain	Rabi	Delhi	Tea
+Mountain	Kharif	Maharashtra	Potato
+Laterite	Kharif	Himachal Pradesh	Tea
+Black	Zaid	Nagaland	Soybean
+Red	Zaid	Tripura	Millet
+Sandy	Rabi	Arunachal Pradesh	Maize
+Arid	Zaid	Rajasthan	Barley
+Sandy	Rabi	Uttar Pradesh	Maize
+Laterite	Kharif	Maharashtra	Coffee
+Arid	Rabi	Haryana	Mustard
+Red	Rabi	Meghalaya	Chilli
+Clayey	Rabi	Maharashtra	Pulses
+Clayey	Rabi	Karnataka	Rice
+Loamy	Kharif	Meghalaya	Vegetables
+Arid	Kharif	Himachal Pradesh	Mustard
+Red	Kharif	Mizoram	Millet
+Loamy	Kharif	Bihar	Jute
+Black	Zaid	Tripura	Gram
+Arid	Rabi	Haryana	Bajra
+Alluvial	Zaid	Meghalaya	Sugarcane
+Black	Zaid	Rajasthan	Castor
+Black	Rabi	Punjab	Gram
+Alluvial	Zaid	Mizoram	Sugarcane
+Clayey	Rabi	Madhya Pradesh	Vegetables
+Mountain	Zaid	Bihar	Cherry
+Mountain	Kharif	Chhattisgarh	Potato
+Alluvial	Kharif	Rajasthan	Wheat
+Loamy	Zaid	Jharkhand	Rice
+Clayey	Kharif	Tripura	Pulses
+Alluvial	Kharif	Arunachal Pradesh	Sugarcane
+Black	Rabi	Bihar	Sorghum
+Loamy	Zaid	Goa	Vegetables
+Red	Rabi	Bihar	Ragi
+Alluvial	Zaid	Arunachal Pradesh	Wheat
+Alluvial	Kharif	Tripura	Maize
+Mountain	Kharif	Himachal Pradesh	Apple
+Red	Kharif	Sikkim	Chilli
+Red	Kharif	Jharkhand	Lentil
+Black	Rabi	Uttarakhand	Cotton
+Laterite	Kharif	Jammu and Kashmir	Coffee
+Laterite	Kharif	Maharashtra	Arecanut
+Arid	Kharif	Telangana	Moong
+Sandy	Rabi	Andhra Pradesh	Muskmelon
+Alluvial	Kharif	Odisha	Jute
+Red	Zaid	Uttar Pradesh	Ragi
+Arid	Kharif	Odisha	Cumin
+Clayey	Rabi	Jammu and Kashmir	Vegetables
+Sandy	Kharif	Jharkhand	Maize
+Sandy	Kharif	Himachal Pradesh	Maize
+Loamy	Kharif	Punjab	Jute
+Mountain	Kharif	Haryana	Tea
+Loamy	Zaid	Delhi	Barley
+Black	Zaid	Bihar	Sorghum
+Black	Kharif	Tamil Nadu	Castor
+Clayey	Rabi	Telangana	Mustard
+Loamy	Rabi	Bihar	Vegetables
+Red	Rabi	Telangana	Ragi
+Clayey	Zaid	West Bengal	Rice
+Loamy	Kharif	Odisha	Jute
+Laterite	Zaid	Assam	Arecanut
+Black	Zaid	Goa	Cotton
+Black	Kharif	Assam	Sorghum
+Red	Zaid	Rajasthan	Paddy
+Black	Rabi	Kerala	Gram
+Black	Rabi	Jammu and Kashmir	Sorghum
+Clayey	Rabi	Arunachal Pradesh	Pulses
+Laterite	Kharif	Mizoram	Rubber
+Loamy	Rabi	Karnataka	Wheat
+Mountain	Kharif	Meghalaya	Millet
+Mountain	Zaid	Punjab	Barley
+Black	Kharif	Bihar	Castor
+Laterite	Zaid	Goa	Rubber
+Black	Kharif	Kerala	Sorghum
+Sandy	Kharif	Telangana	Wheat
+Alluvial	Zaid	Odisha	Vegetables
+Laterite	Rabi	Tamil Nadu	Rubber
+Alluvial	Zaid	Manipur	Rice
+Sandy	Zaid	Tripura	Chickpea
+Clayey	Rabi	Meghalaya	Pea
+Red	Zaid	Gujarat	Chilli
+Black	Kharif	Uttarakhand	Soybean
+Alluvial	Kharif	Bihar	Wheat
+Black	Zaid	Meghalaya	Gram
+Arid	Kharif	Odisha	Cumin
+Sandy	Zaid	Punjab	Muskmelon
+Red	Kharif	Tamil Nadu	Millet
+Arid	Rabi	Punjab	Barley
+Loamy	Kharif	Gujarat	Wheat
+Black	Kharif	Meghalaya	Sorghum
+Laterite	Kharif	Haryana	Arecanut
+Black	Zaid	Maharashtra	Sorghum
+Black	Rabi	Karnataka	Soybean
+Arid	Rabi	Kerala	Bajra
+Black	Rabi	Telangana	Soybean
+Clayey	Rabi	Tripura	Pea
+Loamy	Rabi	Andhra Pradesh	Sugarcane
+Black	Rabi	Tamil Nadu	Castor
+Black	Rabi	Punjab	Soybean
+Red	Rabi	Odisha	Paddy
+Sandy	Kharif	Odisha	Muskmelon
+Mountain	Kharif	Delhi	Cherry
+Black	Rabi	Maharashtra	Groundnut
+Clayey	Zaid	Nagaland	Rice
+Sandy	Kharif	Kerala	Muskmelon
+Alluvial	Kharif	Himachal Pradesh	Wheat
+Red	Zaid	Nagaland	Ragi
+Clayey	Zaid	Gujarat	Vegetables
+Sandy	Rabi	Uttar Pradesh	Muskmelon
+Sandy	Kharif	Uttar Pradesh	Muskmelon
+Alluvial	Zaid	West Bengal	Wheat
+Black	Rabi	Karnataka	Gram
+Clayey	Rabi	Gujarat	Pea
+Red	Kharif	Maharashtra	Turmeric
+Mountain	Rabi	Bihar	Apple
+Arid	Rabi	Delhi	Bajra
+Mountain	Rabi	Telangana	Cherry
+Mountain	Rabi	Arunachal Pradesh	Apple
+Mountain	Zaid	Manipur	Apple
+Sandy	Rabi	Punjab	Chickpea
+Laterite	Zaid	Rajasthan	Tea
+Black	Kharif	Rajasthan	Gram
+Clayey	Kharif	Jharkhand	Rice
+Sandy	Zaid	Sikkim	Sunflower
+Sandy	Kharif	Maharashtra	Muskmelon
+Loamy	Kharif	West Bengal	Wheat
+Loamy	Zaid	Goa	Vegetables
+Alluvial	Zaid	Punjab	Rice
+Black	Rabi	Kerala	Soybean
+Sandy	Kharif	Assam	Watermelon
+Clayey	Kharif	West Bengal	Rice
+Arid	Zaid	Arunachal Pradesh	Cumin
+Mountain	Kharif	Madhya Pradesh	Potato
+Alluvial	Kharif	Nagaland	Vegetables
+Sandy	Kharif	Telangana	Watermelon
+Red	Rabi	Chhattisgarh	Paddy
+Black	Zaid	Chhattisgarh	Cotton
+Loamy	Kharif	Maharashtra	Rice
+Red	Rabi	Kerala	Lentil
+Loamy	Rabi	Uttar Pradesh	Sugarcane
+Laterite	Zaid	Kerala	Rubber
+Red	Rabi	Rajasthan	Millet
+Mountain	Zaid	Kerala	Cherry
+Alluvial	Zaid	Punjab	Sugarcane
+Clayey	Zaid	Telangana	Pulses
+Arid	Zaid	Haryana	Mustard
+Clayey	Zaid	Assam	Vegetables
+Loamy	Zaid	Uttar Pradesh	Barley
+Alluvial	Kharif	Jharkhand	Wheat
+Clayey	Kharif	Meghalaya	Pulses
+Red	Kharif	Uttar Pradesh	Millet
+Black	Kharif	Karnataka	Cotton
+Laterite	Rabi	Meghalaya	Rubber
+Arid	Rabi	Haryana	Castor
+Clayey	Rabi	West Bengal	Rice
+Alluvial	Zaid	Delhi	Rice
+Loamy	Kharif	Goa	Jute
+Laterite	Zaid	Kerala	Cashew
+Red	Zaid	Uttarakhand	Paddy
+Alluvial	Rabi	Andhra Pradesh	Rice
+Red	Kharif	Bihar	Chilli
+Loamy	Rabi	Nagaland	Vegetables
+Alluvial	Zaid	Delhi	Wheat
+Loamy	Kharif	Jammu and Kashmir	Vegetables
+Black	Zaid	Andhra Pradesh	Groundnut
+Arid	Zaid	Arunachal Pradesh	Bajra
+Alluvial	Kharif	Punjab	Sugarcane
+Loamy	Rabi	Jharkhand	Wheat
+Laterite	Kharif	West Bengal	Cashew
+Sandy	Zaid	Gujarat	Wheat
+Sandy	Kharif	Tripura	Wheat
+Mountain	Rabi	Chhattisgarh	Apple
+Laterite	Kharif	Kerala	Arecanut
+Alluvial	Kharif	Andhra Pradesh	Rice
+Laterite	Kharif	Manipur	Arecanut
+Alluvial	Zaid	Karnataka	Jute
+Alluvial	Kharif	Arunachal Pradesh	Wheat
+Loamy	Rabi	Arunachal Pradesh	Barley
+Sandy	Rabi	Andhra Pradesh	Chickpea
+Clayey	Rabi	Assam	Mustard
+Mountain	Rabi	Madhya Pradesh	Barley
+Red	Rabi	Jharkhand	Chilli
+Sandy	Zaid	Madhya Pradesh	Muskmelon
+Laterite	Zaid	Meghalaya	Coconut
+Arid	Rabi	Rajasthan	Cumin
+Alluvial	Rabi	Telangana	Rice
+Sandy	Rabi	Sikkim	Maize
+Red	Kharif	Chhattisgarh	Millet
+Laterite	Kharif	Tripura	Tea
+Clayey	Kharif	Punjab	Rice
+Black	Zaid	Chhattisgarh	Castor
+Arid	Kharif	Goa	Moong
+Arid	Rabi	Arunachal Pradesh	Moong
+Black	Kharif	Karnataka	Castor
+Clayey	Rabi	Jammu and Kashmir	Rice
+Clayey	Kharif	Mizoram	Vegetables
+Alluvial	Zaid	Punjab	Sugarcane
+Mountain	Rabi	Tamil Nadu	Barley
+Loamy	Zaid	Maharashtra	Sugarcane
+Red	Zaid	Nagaland	Chilli
+Laterite	Rabi	Goa	Tea
+Laterite	Kharif	Haryana	Coconut
+Laterite	Kharif	Gujarat	Coconut
+Arid	Zaid	Sikkim	Barley
+Loamy	Zaid	Delhi	Jute
+Alluvial	Kharif	Manipur	Vegetables
+Loamy	Zaid	Tamil Nadu	Wheat
+Arid	Zaid	Maharashtra	Mustard
+Black	Zaid	Punjab	Castor
+Laterite	Rabi	Madhya Pradesh	Cashew
+Alluvial	Zaid	Uttar Pradesh	Jute
+Black	Rabi	Karnataka	Groundnut
+Arid	Zaid	Jammu and Kashmir	Bajra
+Arid	Rabi	Andhra Pradesh	Castor
+Mountain	Zaid	Tripura	Tea
+Loamy	Zaid	Haryana	Jute
+Arid	Zaid	Meghalaya	Castor
+Alluvial	Kharif	Goa	Vegetables
+Sandy	Zaid	Karnataka	Sunflower
+Mountain	Zaid	Himachal Pradesh	Barley
+Loamy	Kharif	Kerala	Barley
+Alluvial	Zaid	Nagaland	Wheat
+Laterite	Kharif	Jharkhand	Cashew
+Mountain	Rabi	Tamil Nadu	Cherry
+Sandy	Kharif	Jammu and Kashmir	Sunflower
+Black	Zaid	Nagaland	Sorghum
+Mountain	Zaid	Maharashtra	Barley
+Laterite	Zaid	Gujarat	Rubber
+Alluvial	Rabi	Delhi	Maize
+Clayey	Rabi	Uttarakhand	Pulses
+Clayey	Rabi	Karnataka	Vegetables
+Alluvial	Kharif	Maharashtra	Vegetables
+Laterite	Zaid	Maharashtra	Arecanut
+Red	Zaid	Odisha	Turmeric
+Red	Kharif	Andhra Pradesh	Ragi
+Laterite	Rabi	Jharkhand	Coconut
+Sandy	Rabi	Chhattisgarh	Muskmelon
+Mountain	Kharif	Uttar Pradesh	Tea
+Laterite	Zaid	Telangana	Coffee
+Clayey	Zaid	Maharashtra	Vegetables
+Clayey	Rabi	Bihar	Mustard
+Red	Kharif	Maharashtra	Lentil
+Laterite	Kharif	West Bengal	Coffee
+Laterite	Rabi	West Bengal	Arecanut
+Arid	Kharif	Karnataka	Moong
+Alluvial	Rabi	Himachal Pradesh	Sugarcane
+Red	Zaid	Punjab	Turmeric
+Loamy	Kharif	Nagaland	Rice
+Arid	Kharif	Bihar	Cumin
+Alluvial	Rabi	Karnataka	Sugarcane
+Laterite	Rabi	Bihar	Rubber
+Black	Zaid	Arunachal Pradesh	Groundnut
+Black	Rabi	Nagaland	Cotton
+Laterite	Rabi	Telangana	Arecanut
+Sandy	Rabi	Bihar	Wheat
+Clayey	Kharif	Uttarakhand	Mustard
+Laterite	Kharif	West Bengal	Cashew
+Black	Kharif	Jammu and Kashmir	Soybean
+Red	Zaid	Tripura	Turmeric
+Mountain	Rabi	West Bengal	Apple
+Loamy	Rabi	Madhya Pradesh	Sugarcane
+Alluvial	Kharif	Rajasthan	Rice
+Sandy	Kharif	Telangana	Chickpea
+Laterite	Rabi	Punjab	Rubber
+Mountain	Zaid	Rajasthan	Cherry
+Mountain	Rabi	Gujarat	Millet
+Loamy	Rabi	Jammu and Kashmir	Sugarcane
+Loamy	Zaid	Himachal Pradesh	Vegetables
+Red	Kharif	Sikkim	Chilli
+Alluvial	Zaid	Bihar	Wheat
+Mountain	Kharif	Bihar	Cherry
+Arid	Rabi	Arunachal Pradesh	Castor
+Loamy	Rabi	Kerala	Rice
+Sandy	Kharif	Tripura	Maize
+Alluvial	Kharif	Tripura	Rice
+Clayey	Zaid	Assam	Pea
+Alluvial	Rabi	Maharashtra	Rice
+Sandy	Rabi	Andhra Pradesh	Sunflower
+Mountain	Zaid	Meghalaya	Potato
+Alluvial	Kharif	Odisha	Wheat
+Red	Rabi	Kerala	Paddy
+Arid	Kharif	Nagaland	Barley
+Arid	Zaid	Nagaland	Castor
+Mountain	Rabi	Punjab	Potato
+Mountain	Rabi	Odisha	Tea
+Mountain	Rabi	Jharkhand	Millet
+Clayey	Zaid	Rajasthan	Pea
+Clayey	Kharif	Jammu and Kashmir	Mustard
+Red	Rabi	Karnataka	Paddy
+Mountain	Rabi	Goa	Potato
+Alluvial	Zaid	Tripura	Wheat
+Black	Kharif	Himachal Pradesh	Castor
+Arid	Kharif	Sikkim	Castor
+Clayey	Rabi	Punjab	Vegetables
+Black	Kharif	Punjab	Sorghum
+Alluvial	Zaid	West Bengal	Rice
+Red	Rabi	Uttar Pradesh	Lentil
+Laterite	Rabi	Maharashtra	Arecanut
+Loamy	Kharif	Haryana	Vegetables
+Clayey	Rabi	Uttar Pradesh	Vegetables
+Black	Kharif	West Bengal	Soybean
+Arid	Rabi	Arunachal Pradesh	Moong
+Clayey	Zaid	Delhi	Pulses
+Arid	Kharif	Mizoram	Cumin
+Sandy	Rabi	Nagaland	Muskmelon
+Loamy	Kharif	Odisha	Wheat
+Red	Rabi	Telangana	Chilli
+Loamy	Kharif	Tripura	Vegetables
+Arid	Kharif	Madhya Pradesh	Castor
+Black	Zaid	Goa	Castor
+Laterite	Zaid	Haryana	Rubber
+Black	Rabi	Assam	Groundnut
+Red	Rabi	Gujarat	Paddy
+Clayey	Zaid	Tripura	Pea
+Sandy	Kharif	Andhra Pradesh	Muskmelon
+Loamy	Rabi	Tamil Nadu	Rice
+Alluvial	Rabi	Maharashtra	Vegetables
+Laterite	Zaid	Rajasthan	Rubber
+Black	Kharif	Himachal Pradesh	Cotton
+Black	Kharif	Maharashtra	Sorghum
+Loamy	Rabi	Nagaland	Barley
+Alluvial	Rabi	Bihar	Wheat
+Laterite	Rabi	Tripura	Rubber
+Alluvial	Rabi	Madhya Pradesh	Wheat
+Laterite	Kharif	Uttarakhand	Rubber
+Arid	Zaid	Rajasthan	Bajra
+Mountain	Rabi	Meghalaya	Cherry
+Laterite	Rabi	Madhya Pradesh	Arecanut
+Laterite	Zaid	Tripura	Tea
+Black	Zaid	Maharashtra	Soybean
+Arid	Zaid	Jharkhand	Barley
+Loamy	Kharif	Manipur	Barley
+Mountain	Zaid	Andhra Pradesh	Apple
+Arid	Kharif	Jharkhand	Mustard
+Black	Rabi	Nagaland	Soybean
+Sandy	Rabi	Meghalaya	Watermelon
+Arid	Rabi	Uttar Pradesh	Bajra
+Arid	Zaid	Delhi	Barley
+Sandy	Rabi	Telangana	Chickpea
+Alluvial	Zaid	Goa	Jute
+Loamy	Rabi	Odisha	Jute
+Loamy	Kharif	Bihar	Vegetables
+Alluvial	Kharif	Gujarat	Rice
+Mountain	Zaid	Himachal Pradesh	Barley
+Sandy	Zaid	Himachal Pradesh	Maize
+Alluvial	Kharif	Chhattisgarh	Sugarcane
+Loamy	Rabi	Telangana	Vegetables
+Laterite	Kharif	Rajasthan	Coconut
+Red	Rabi	Jharkhand	Ragi
+Arid	Kharif	Meghalaya	Castor
+Clayey	Zaid	Rajasthan	Pulses
+Red	Zaid	Tripura	Turmeric
+Laterite	Rabi	Assam	Coffee
+Arid	Zaid	Meghalaya	Bajra
+Loamy	Zaid	Andhra Pradesh	Barley
+Mountain	Zaid	Manipur	Cherry
+Arid	Rabi	Goa	Mustard
+Arid	Zaid	West Bengal	Mustard
+Black	Kharif	Haryana	Castor
+Arid	Zaid	Delhi	Cumin
+Mountain	Rabi	Uttar Pradesh	Apple
+Black	Zaid	Uttarakhand	Groundnut
+Laterite	Zaid	Assam	Arecanut
+Arid	Kharif	Jammu and Kashmir	Moong
+Red	Kharif	Manipur	Turmeric
+Mountain	Zaid	Bihar	Tea
+Loamy	Zaid	Rajasthan	Wheat
+Arid	Rabi	Kerala	Mustard
+Red	Kharif	Mizoram	Lentil
+Black	Zaid	Karnataka	Sorghum
+Clayey	Rabi	Rajasthan	Rice
+Alluvial	Kharif	Manipur	Rice
+Mountain	Zaid	Meghalaya	Tea
+Laterite	Zaid	Maharashtra	Cashew
+Sandy	Zaid	Rajasthan	Maize
+Laterite	Kharif	Himachal Pradesh	Arecanut
+Black	Rabi	Kerala	Castor
+Red	Zaid	Goa	Turmeric
+Black	Kharif	Manipur	Gram
+Alluvial	Rabi	Uttarakhand	Vegetables
+Mountain	Kharif	Odisha	Barley
+Black	Kharif	Arunachal Pradesh	Groundnut
+Mountain	Kharif	Karnataka	Potato
+Sandy	Kharif	Chhattisgarh	Wheat
+Alluvial	Rabi	Maharashtra	Sugarcane
+Sandy	Kharif	Manipur	Wheat
+Sandy	Kharif	Jammu and Kashmir	Chickpea
+Red	Zaid	Sikkim	Paddy
+Black	Kharif	Haryana	Soybean
+Laterite	Kharif	West Bengal	Arecanut
+Arid	Kharif	Maharashtra	Castor
+Red	Zaid	Karnataka	Lentil
+Sandy	Zaid	Sikkim	Chickpea
+Clayey	Zaid	Goa	Vegetables
+Red	Zaid	Rajasthan	Lentil
+Arid	Kharif	Odisha	Mustard
+Alluvial	Rabi	Maharashtra	Jute
+Red	Kharif	Meghalaya	Millet
+Clayey	Rabi	West Bengal	Pulses
+Clayey	Kharif	Delhi	Mustard
+Alluvial	Rabi	Karnataka	Jute
+Alluvial	Zaid	Delhi	Maize
+Sandy	Rabi	Karnataka	Chickpea
+Sandy	Zaid	Sikkim	Watermelon
+Black	Rabi	Manipur	Sorghum
+Clayey	Rabi	Uttarakhand	Mustard
+Mountain	Zaid	Tamil Nadu	Millet
+Loamy	Kharif	Nagaland	Wheat
+Laterite	Kharif	Tripura	Coffee
+Black	Zaid	Andhra Pradesh	Cotton
+Alluvial	Kharif	Assam	Jute
+Sandy	Rabi	Delhi	Maize
+Black	Zaid	Chhattisgarh	Castor
+Red	Kharif	Punjab	Chilli
+Black	Zaid	Tripura	Groundnut
+Red	Zaid	Punjab	Lentil
+Sandy	Zaid	Odisha	Sunflower
+Alluvial	Kharif	Tamil Nadu	Sugarcane
+Arid	Zaid	Mizoram	Bajra
+Laterite	Kharif	Assam	Tea
+Mountain	Rabi	Nagaland	Barley
+Arid	Kharif	Jharkhand	Barley
+Laterite	Kharif	Uttar Pradesh	Coffee
+Alluvial	Zaid	Manipur	Jute
+Alluvial	Kharif	Assam	Vegetables
+Red	Kharif	Uttar Pradesh	Millet
+Alluvial	Kharif	Punjab	Vegetables
+Loamy	Kharif	West Bengal	Wheat
+Sandy	Rabi	Manipur	Wheat
+Red	Rabi	Goa	Lentil
+Black	Zaid	Chhattisgarh	Groundnut
+Mountain	Kharif	Haryana	Tea
+Sandy	Rabi	Sikkim	Watermelon
+Loamy	Kharif	Himachal Pradesh	Wheat
+Loamy	Kharif	Assam	Wheat
+Laterite	Kharif	Nagaland	Cashew
+Red	Kharif	Himachal Pradesh	Paddy
+Mountain	Kharif	Assam	Millet
+Laterite	Rabi	Arunachal Pradesh	Coconut
+Red	Rabi	Uttar Pradesh	Chilli
+Mountain	Kharif	Nagaland	Tea
+Alluvial	Kharif	Karnataka	Wheat
+Red	Rabi	Karnataka	Turmeric
+Sandy	Rabi	Madhya Pradesh	Watermelon
+Loamy	Zaid	Nagaland	Jute
+Red	Rabi	Haryana	Turmeric
+Clayey	Rabi	Karnataka	Rice
+Laterite	Kharif	Tripura	Coconut
+Black	Kharif	Gujarat	Groundnut
+Red	Zaid	Maharashtra	Chilli
+Sandy	Rabi	Bihar	Muskmelon
+Alluvial	Rabi	Uttarakhand	Maize
+Arid	Rabi	Nagaland	Mustard
+Clayey	Rabi	Meghalaya	Pea
+Black	Kharif	Uttarakhand	Gram
+Red	Rabi	Maharashtra	Paddy
+Loamy	Rabi	Jammu and Kashmir	Barley
+Loamy	Zaid	Rajasthan	Wheat
+Mountain	Zaid	Karnataka	Cherry
+Alluvial	Zaid	Goa	Vegetables
+Laterite	Rabi	Himachal Pradesh	Arecanut
+Sandy	Kharif	Jharkhand	Watermelon
+Loamy	Kharif	Sikkim	Barley
+Black	Kharif	Uttarakhand	Soybean
+Alluvial	Rabi	Tripura	Vegetables
+Laterite	Rabi	Assam	Tea
+Mountain	Kharif	Kerala	Barley
+Black	Rabi	Meghalaya	Soybean
+Red	Rabi	Uttar Pradesh	Millet
+Red	Zaid	Tamil Nadu	Lentil
+Black	Rabi	Kerala	Soybean
+Red	Zaid	Maharashtra	Millet
+Mountain	Zaid	Sikkim	Millet
+Black	Zaid	Tripura	Soybean
+Sandy	Kharif	Punjab	Wheat
+Clayey	Rabi	Sikkim	Mustard
+Black	Kharif	Kerala	Sorghum
+Alluvial	Zaid	Maharashtra	Vegetables
+Red	Zaid	Punjab	Turmeric
+Mountain	Kharif	Goa	Potato
+Red	Kharif	Nagaland	Ragi
+Laterite	Rabi	Uttarakhand	Coconut
+Alluvial	Rabi	Tripura	Sugarcane
+Clayey	Kharif	Assam	Vegetables
+Alluvial	Kharif	Chhattisgarh	Rice
+Laterite	Zaid	Kerala	Coconut
+Sandy	Zaid	Sikkim	Watermelon
+Black	Kharif	Himachal Pradesh	Soybean
+Alluvial	Zaid	Jammu and Kashmir	Jute
+Sandy	Zaid	Mizoram	Maize
+Loamy	Zaid	Delhi	Sugarcane
+Laterite	Zaid	Uttar Pradesh	Rubber
+Arid	Zaid	Arunachal Pradesh	Castor
+Red	Kharif	West Bengal	Chilli
+Arid	Zaid	Uttarakhand	Bajra
+Clayey	Kharif	Kerala	Vegetables
+Loamy	Kharif	Uttarakhand	Vegetables
+Sandy	Zaid	Haryana	Maize
+Clayey	Kharif	Delhi	Vegetables
+Black	Zaid	Assam	Soybean
+Laterite	Zaid	Assam	Tea
+Clayey	Zaid	Jharkhand	Vegetables
+Mountain	Kharif	Himachal Pradesh	Apple
+Laterite	Zaid	Maharashtra	Coconut
+Laterite	Kharif	Uttar Pradesh	Tea
+Black	Kharif	Assam	Soybean
+Clayey	Zaid	Arunachal Pradesh	Mustard
+Arid	Kharif	Haryana	Castor
+Red	Rabi	Chhattisgarh	Chilli
+Mountain	Rabi	Mizoram	Millet
+Arid	Kharif	Uttar Pradesh	Bajra
+Loamy	Kharif	Tamil Nadu	Rice
+Alluvial	Zaid	Jharkhand	Rice
+Red	Kharif	Himachal Pradesh	Chilli
+Sandy	Rabi	Delhi	Muskmelon
+Loamy	Rabi	Rajasthan	Barley
+Loamy	Zaid	Jharkhand	Sugarcane
+Sandy	Rabi	Madhya Pradesh	Muskmelon
+Laterite	Zaid	Himachal Pradesh	Coffee
+Clayey	Rabi	Kerala	Mustard
+Red	Rabi	Odisha	Ragi
+Mountain	Kharif	Rajasthan	Barley
+Loamy	Kharif	Manipur	Wheat
+Arid	Kharif	Uttar Pradesh	Cumin
+Arid	Rabi	Maharashtra	Cumin
+Red	Zaid	Tripura	Ragi
+Clayey	Kharif	Jharkhand	Vegetables
+Loamy	Rabi	Jharkhand	Barley
+Laterite	Zaid	Tamil Nadu	Coffee
+Clayey	Zaid	Tripura	Pulses
+Sandy	Zaid	West Bengal	Wheat
+Alluvial	Kharif	Telangana	Vegetables
+Arid	Kharif	Goa	Bajra
+Laterite	Zaid	West Bengal	Rubber
+Loamy	Rabi	Delhi	Rice
+Red	Kharif	Mizoram	Chilli
+Black	Kharif	Uttarakhand	Groundnut
+Clayey	Zaid	Andhra Pradesh	Pea
+Red	Zaid	Sikkim	Ragi
+Mountain	Kharif	Nagaland	Potato
+Mountain	Kharif	Haryana	Cherry
+Clayey	Rabi	Telangana	Pulses
+Alluvial	Zaid	Punjab	Rice
+Mountain	Rabi	Uttarakhand	Tea
+Red	Kharif	Manipur	Turmeric
+Black	Rabi	Punjab	Sorghum
+Clayey	Rabi	Jammu and Kashmir	Mustard
+Laterite	Zaid	Madhya Pradesh	Cashew
+Arid	Kharif	Maharashtra	Moong
+Laterite	Zaid	Assam	Coffee
+Clayey	Rabi	Jammu and Kashmir	Mustard
+Black	Rabi	Tamil Nadu	Groundnut
+Alluvial	Kharif	Nagaland	Wheat
+Laterite	Rabi	Manipur	Arecanut
+Alluvial	Zaid	Kerala	Wheat
+Black	Kharif	Haryana	Cotton
+Alluvial	Rabi	Arunachal Pradesh	Jute
+Sandy	Rabi	Jharkhand	Muskmelon
+Black	Zaid	Uttarakhand	Castor
+Mountain	Rabi	Goa	Tea
+Mountain	Rabi	Gujarat	Apple
+Arid	Rabi	Delhi	Mustard
+Black	Kharif	Assam	Sorghum
+Red	Zaid	Gujarat	Ragi
+Loamy	Zaid	Rajasthan	Barley
+Laterite	Kharif	Chhattisgarh	Rubber
+Loamy	Kharif	Chhattisgarh	Sugarcane
+Clayey	Zaid	Goa	Mustard
+Alluvial	Rabi	Karnataka	Vegetables
+Clayey	Rabi	Goa	Mustard
+Red	Zaid	Jammu and Kashmir	Turmeric
+Clayey	Rabi	West Bengal	Mustard
+Mountain	Zaid	Uttarakhand	Potato
+Loamy	Rabi	Uttar Pradesh	Rice
+Black	Rabi	Meghalaya	Cotton
+Alluvial	Rabi	Punjab	Jute
+Loamy	Zaid	Mizoram	Sugarcane
+Red	Rabi	Manipur	Millet
+Red	Rabi	Himachal Pradesh	Ragi
+Alluvial	Rabi	Uttarakhand	Sugarcane
+Red	Zaid	West Bengal	Lentil
+Laterite	Kharif	Sikkim	Cashew
+Arid	Kharif	Punjab	Moong
+Alluvial	Kharif	Odisha	Wheat
+Clayey	Zaid	Gujarat	Rice
+Alluvial	Kharif	Tripura	Maize
+Arid	Zaid	Bihar	Cumin
+Mountain	Zaid	Odisha	Millet
+Loamy	Zaid	Madhya Pradesh	Vegetables
+Sandy	Rabi	Odisha	Chickpea
+Arid	Zaid	Andhra Pradesh	Bajra
+Laterite	Rabi	Karnataka	Arecanut
+Sandy	Rabi	Nagaland	Maize
+Laterite	Zaid	Haryana	Arecanut
+Sandy	Zaid	Nagaland	Muskmelon
+Mountain	Kharif	Telangana	Cherry
+Mountain	Rabi	Jharkhand	Barley
+Clayey	Zaid	Arunachal Pradesh	Vegetables
+Black	Rabi	Assam	Castor
+Alluvial	Rabi	Haryana	Wheat
+Laterite	Zaid	Jharkhand	Tea
+Mountain	Rabi	Jammu and Kashmir	Barley
+Arid	Zaid	Karnataka	Castor
+Arid	Kharif	Haryana	Mustard
+Black	Kharif	Kerala	Gram
+Red	Kharif	Uttar Pradesh	Ragi
+Laterite	Rabi	Madhya Pradesh	Coffee
+Loamy	Rabi	Tamil Nadu	Barley
+Loamy	Rabi	Uttar Pradesh	Wheat
+Red	Kharif	Sikkim	Ragi
+Mountain	Rabi	Jammu and Kashmir	Potato
+Mountain	Rabi	Telangana	Potato
+Sandy	Rabi	Sikkim	Maize
+Sandy	Kharif	Goa	Maize
+Black	Zaid	Karnataka	Gram
+Mountain	Kharif	Madhya Pradesh	Millet
+Clayey	Kharif	Delhi	Pulses
+Clayey	Kharif	Goa	Pea
+Alluvial	Rabi	Mizoram	Vegetables
+Red	Kharif	Delhi	Paddy
+Arid	Rabi	Odisha	Mustard
+Red	Zaid	Nagaland	Turmeric
+Laterite	Rabi	Nagaland	Arecanut
+Arid	Rabi	Himachal Pradesh	Cumin
+Laterite	Zaid	Arunachal Pradesh	Coconut
+Laterite	Zaid	Tamil Nadu	Tea
+Clayey	Zaid	Goa	Rice
+Sandy	Kharif	Maharashtra	Sunflower
+Arid	Kharif	Assam	Moong
+Loamy	Rabi	Karnataka	Wheat
+Mountain	Kharif	Madhya Pradesh	Potato
+Arid	Rabi	Assam	Cumin
+Red	Rabi	Tamil Nadu	Ragi
+Arid	Rabi	Jharkhand	Moong
+Alluvial	Kharif	Uttar Pradesh	Jute
+Laterite	Rabi	Gujarat	Coffee
+Loamy	Zaid	Gujarat	Rice
+Mountain	Zaid	Karnataka	Apple
+Arid	Zaid	Arunachal Pradesh	Castor
+Alluvial	Rabi	Rajasthan	Jute
+Black	Rabi	Karnataka	Castor
+Arid	Zaid	Sikkim	Mustard
+Arid	Rabi	Odisha	Barley
+Mountain	Rabi	Tripura	Potato
+Loamy	Rabi	Haryana	Vegetables
+Clayey	Kharif	Nagaland	Pulses
+Black	Zaid	Jammu and Kashmir	Gram
+Arid	Zaid	Bihar	Castor
+Black	Rabi	Arunachal Pradesh	Soybean
+Red	Kharif	Jammu and Kashmir	Millet
+Sandy	Zaid	Mizoram	Sunflower
+Laterite	Zaid	Kerala	Cashew
+Red	Zaid	Madhya Pradesh	Chilli
+Black	Rabi	Bihar	Soybean
+Mountain	Zaid	West Bengal	Barley
+Sandy	Zaid	Mizoram	Sunflower
+Mountain	Kharif	Meghalaya	Tea
+Clayey	Rabi	West Bengal	Rice
+Arid	Kharif	Andhra Pradesh	Cumin
+Mountain	Rabi	Himachal Pradesh	Apple
+Laterite	Kharif	Arunachal Pradesh	Rubber
+Loamy	Rabi	West Bengal	Wheat
+Alluvial	Kharif	Uttarakhand	Sugarcane
+Loamy	Rabi	Madhya Pradesh	Jute
+Laterite	Kharif	Rajasthan	Cashew
+Red	Zaid	Himachal Pradesh	Paddy
+Mountain	Kharif	Manipur	Cherry
+Arid	Zaid	Arunachal Pradesh	Moong
+Mountain	Kharif	Bihar	Tea
+Arid	Rabi	Himachal Pradesh	Cumin
+Arid	Kharif	Karnataka	Mustard
+Loamy	Rabi	Tamil Nadu	Vegetables
+Red	Rabi	West Bengal	Turmeric
+Clayey	Rabi	Nagaland	Pea
+Clayey	Kharif	Odisha	Vegetables
+Sandy	Kharif	Mizoram	Maize
+Laterite	Zaid	Uttarakhand	Cashew
+Black	Kharif	Karnataka	Sorghum
+Clayey	Kharif	Sikkim	Vegetables
+Arid	Rabi	Delhi	Bajra
+Red	Rabi	Manipur	Millet
+Black	Kharif	Tripura	Sorghum
+Clayey	Rabi	Uttarakhand	Rice
+Laterite	Rabi	West Bengal	Coconut
+Mountain	Rabi	Chhattisgarh	Cherry
+Arid	Rabi	Sikkim	Bajra
+Clayey	Kharif	Mizoram	Pea
+Loamy	Kharif	Uttarakhand	Barley
+Loamy	Rabi	Bihar	Barley
+Laterite	Rabi	Chhattisgarh	Rubber
+Loamy	Kharif	Odisha	Vegetables
+Red	Kharif	Chhattisgarh	Chilli
+Arid	Zaid	Rajasthan	Bajra
+Mountain	Rabi	Kerala	Cherry
+Loamy	Kharif	Karnataka	Vegetables
+Laterite	Zaid	Gujarat	Cashew
+Arid	Zaid	Maharashtra	Moong
+Laterite	Rabi	Meghalaya	Coconut
+Alluvial	Rabi	Uttarakhand	Rice
+Red	Rabi	Telangana	Millet
+Black	Zaid	Arunachal Pradesh	Gram
+Mountain	Zaid	Haryana	Barley
+Laterite	Rabi	Madhya Pradesh	Coffee
+Black	Rabi	Delhi	Groundnut
+Red	Zaid	Tamil Nadu	Lentil
+Alluvial	Rabi	Tamil Nadu	Maize
+Loamy	Kharif	Jammu and Kashmir	Barley
+Black	Kharif	Uttar Pradesh	Gram
+Red	Zaid	Maharashtra	Chilli
+Laterite	Rabi	Chhattisgarh	Arecanut
+Alluvial	Zaid	Tamil Nadu	Sugarcane
+Laterite	Kharif	Rajasthan	Arecanut
+Black	Kharif	West Bengal	Gram
+Sandy	Zaid	Manipur	Sunflower
+Black	Kharif	Himachal Pradesh	Sorghum
+Sandy	Rabi	Tamil Nadu	Sunflower
+Clayey	Zaid	Tamil Nadu	Pulses
+Mountain	Zaid	Himachal Pradesh	Cherry
+Black	Kharif	Kerala	Castor
+Laterite	Kharif	Chhattisgarh	Coffee
+Arid	Kharif	Delhi	Moong
+Alluvial	Zaid	Andhra Pradesh	Maize
+Mountain	Rabi	Uttarakhand	Barley
+Sandy	Kharif	Uttar Pradesh	Watermelon
+Clayey	Kharif	Nagaland	Vegetables
+Alluvial	Zaid	Mizoram	Jute
+Loamy	Rabi	Jharkhand	Sugarcane
+Loamy	Zaid	Tamil Nadu	Rice
+Loamy	Rabi	Bihar	Sugarcane
+Red	Zaid	Gujarat	Millet
+Clayey	Kharif	Nagaland	Mustard
+Mountain	Zaid	West Bengal	Barley
+Red	Zaid	Kerala	Lentil
+Arid	Rabi	Madhya Pradesh	Castor
+Arid	Rabi	Assam	Castor
+Laterite	Zaid	Telangana	Coconut
+Sandy	Zaid	Haryana	Watermelon
+Black	Kharif	Tamil Nadu	Groundnut
+Arid	Zaid	Tripura	Bajra
+Red	Zaid	Punjab	Paddy
+Red	Rabi	West Bengal	Ragi
+Arid	Kharif	Goa	Cumin
+Sandy	Kharif	Delhi	Wheat
+Sandy	Kharif	Goa	Watermelon
+Laterite	Zaid	Tripura	Coconut
+Laterite	Rabi	Arunachal Pradesh	Coconut
+Laterite	Kharif	Rajasthan	Tea
+Clayey	Kharif	West Bengal	Pea
+Black	Zaid	Himachal Pradesh	Cotton
+Black	Zaid	Jammu and Kashmir	Gram
+Red	Rabi	Delhi	Ragi
+Laterite	Kharif	Nagaland	Tea
+Loamy	Kharif	Punjab	Barley
+Black	Rabi	Manipur	Soybean
+Alluvial	Zaid	Telangana	Rice
+Sandy	Rabi	Telangana	Maize
+Black	Rabi	Maharashtra	Gram
+Red	Rabi	Rajasthan	Paddy
+Alluvial	Zaid	Karnataka	Vegetables
+Laterite	Zaid	Tripura	Cashew
+Arid	Kharif	Jharkhand	Mustard
+Sandy	Zaid	Jharkhand	Sunflower
+Loamy	Zaid	Rajasthan	Sugarcane
+Mountain	Zaid	Uttarakhand	Tea
+Arid	Rabi	Madhya Pradesh	Bajra
+Arid	Rabi	Uttarakhand	Barley
+Alluvial	Zaid	Andhra Pradesh	Vegetables
+Loamy	Kharif	Sikkim	Barley
+Clayey	Zaid	Chhattisgarh	Pea
+Clayey	Rabi	Andhra Pradesh	Vegetables
+Red	Rabi	Haryana	Turmeric
+Mountain	Kharif	Himachal Pradesh	Cherry
+Red	Rabi	Kerala	Lentil
+Red	Kharif	Tripura	Chilli
+Black	Zaid	Madhya Pradesh	Sorghum
+Clayey	Rabi	Tamil Nadu	Pulses
+Laterite	Zaid	Haryana	Tea
+Arid	Kharif	Chhattisgarh	Barley
+Laterite	Rabi	Meghalaya	Arecanut
+Arid	Kharif	Uttar Pradesh	Barley
+Mountain	Kharif	Madhya Pradesh	Tea
+Sandy	Rabi	Maharashtra	Wheat
+Mountain	Rabi	Bihar	Tea
+Mountain	Rabi	Madhya Pradesh	Cherry
+Laterite	Kharif	Rajasthan	Tea
+Clayey	Rabi	Haryana	Mustard
+Alluvial	Rabi	Himachal Pradesh	Jute
+Sandy	Rabi	Himachal Pradesh	Watermelon
+Laterite	Rabi	Kerala	Arecanut
+Clayey	Rabi	Sikkim	Mustard
+Mountain	Zaid	Bihar	Potato
+Clayey	Kharif	Madhya Pradesh	Rice
+Arid	Zaid	Gujarat	Moong
+Mountain	Kharif	Andhra Pradesh	Apple
+Laterite	Rabi	Madhya Pradesh	Coffee
+Black	Kharif	Meghalaya	Cotton
+Loamy	Rabi	Delhi	Barley
+Clayey	Rabi	Mizoram	Pea
+Laterite	Kharif	Jharkhand	Coconut
+Arid	Zaid	Sikkim	Bajra
+Alluvial	Rabi	Odisha	Rice
+Arid	Zaid	Jharkhand	Cumin
+Black	Kharif	Assam	Gram
+Loamy	Rabi	Sikkim	Rice
+Arid	Rabi	Mizoram	Barley
+Sandy	Rabi	Uttarakhand	Sunflower
+Red	Zaid	Uttar Pradesh	Chilli
+Arid	Zaid	Telangana	Castor
+Mountain	Kharif	West Bengal	Cherry
+Arid	Zaid	Punjab	Barley
+Red	Rabi	Jammu and Kashmir	Paddy
+Sandy	Rabi	Madhya Pradesh	Watermelon
+Laterite	Kharif	Haryana	Cashew
+Mountain	Zaid	Manipur	Millet
+Mountain	Rabi	Maharashtra	Tea
+Black	Kharif	Himachal Pradesh	Soybean
+Black	Kharif	Nagaland	Sorghum
+Sandy	Zaid	Assam	Wheat

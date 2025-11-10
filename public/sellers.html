@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sell Products - Green Fields</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <style>
+    /* ===== GENERAL ===== */
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: url('dashboard.jpg') center/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Overlay for better readability */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: relative;
+      z-index: 1;
+      background-color: #2e7d32;
+      color: white;
+      padding: 12px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo { font-size: 20px; font-weight: bold; }
+    nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    nav ul li a { color: white; text-decoration: none; font-weight: 500; }
+    nav ul li a:hover { color: #c8e6c9; }
+
+    /* ===== CENTERED CONTAINER ===== */
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== FORM CARD ===== */
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.15);
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    form h2 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+
+    /* ===== INPUT GROUPS ===== */
+    .input-group {
+      display: flex;
+      align-items: center;
+      background: #f3faf4;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 0 10px;
+    }
+
+    .input-group i {
+      width: 25px;
+      text-align: center;
+      color: #2e7d32;
+    }
+
+    .input-group input, 
+    .input-group select, 
+    .input-group textarea {
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 12px;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    textarea { resize: vertical; min-height: 70px; }
+    #preview { max-width: 100%; max-height: 150px; margin-top: 10px; display: none; border-radius: 10px; }
+
+    /* ===== BUTTON ===== */
+    button {
+      background: #2e7d32;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    button:hover { 
+      background: #256528;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      position: relative;
+      z-index: 1;
+      background: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      margin-top: auto;
+    }
+
+    /* ===== SUCCESS POPUP ===== */
+    .success-container {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex; justify-content: center; align-items: center;
+      visibility: hidden; opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 9999;
+    }
+
+    .success-container.show { visibility: visible; opacity: 1; }
+
+    .success-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      width: 350px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      animation: pop 0.4s ease;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .success-box h2 { color: #2e7d32; margin-bottom: 10px; }
+    .success-box p { color: #555; margin-bottom: 15px; }
+    .success-box button {
+      background: #2e7d32; color: white;
+      padding: 10px 20px; border: none; border-radius: 8px;
+      font-size: 14px; cursor: pointer;
+    }
+    .success-box button:hover { background: #256528; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Green Fields</div>
+    <ul>
+      <li><a href="farmers.html">Home</a></li>
+      <li><a href="buyers.html">Buy</a></li>
+      <li><a href="sellers.html">Sell</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- Form Container -->
+  <div class="container">
+    <form id="productForm" enctype="multipart/form-data">
+      <h2>Add a Product</h2>
+      <div class="input-group"><i class="fa-solid fa-box"></i><input type="text" name="name" placeholder="Product Name" required></div>
+      <div class="input-group"><i class="fa-solid fa-list"></i>
+        <select id="categorySelect" name="category" required>
+          <option value="">Select Category</option>
+          <option value="vegetables">Vegetables</option>
+          <option value="fruits">Fruits</option>
+          <option value="grains">Grains</option>
+          <option value="others">Others</option>
+        </select>
+      </div>
+      <div class="input-group"><i class="fa-solid fa-indian-rupee-sign"></i><input type="number" name="price" placeholder="Price (₹)" step="0.01" required></div>
+      <div class="input-group"><i class="fa-solid fa-cubes"></i><input type="number" name="quantity" placeholder="Quantity (kg/units)" required></div>
+      <div class="input-group"><i class="fa-solid fa-align-left"></i><textarea name="description" placeholder="Description"></textarea></div>
+      <div class="input-group"><i class="fa-solid fa-phone"></i><input type="text" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required></div>
+      <div class="input-group"><i class="fa-solid fa-envelope"></i><input type="email" name="contactEmail" placeholder="Email ID" required></div>
+      <div class="input-group"><i class="fa-solid fa-image"></i><input type="file" id="imageInput" name="image" accept="image/*" onchange="previewImage(event)" title="Upload product image"></div>
+      <img id="preview" alt="Product Preview">
+      <button type="submit">Add Product</button>
+    </form>
+  </div>
+
+  <!-- Success Popup -->
+  <div class="success-container" id="successPopup">
+    <div class="success-box">
+      <h2>🎉 Product Added!</h2>
+      <p>Your product has been successfully listed on Green Fields.</p>
+      <button onclick="closeSuccess()">OK</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Green Fields. All Rights Reserved.
+  </footer>
+
+  <!-- ===== JavaScript (unchanged) ===== -->
+  <script>
+    function previewImage(event) {
+      const preview = document.getElementById('preview');
+      const file = event.target.files[0];
+      if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = 'block';
+      }
+    }
+
+    const form = document.getElementById("productForm");
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();  // ✅ stop default page reload
+
+      const formData = new FormData(form);
+
+      try {
+        e.preventDefault();
+        // send form data to backend
+        const res = await fetch("/add-product", {
+          method: "POST",
+          body: formData
+        });
+
+        if (res.ok) {
+          // ✅ show popup + confetti
+          document.getElementById("successPopup").classList.add("show");
+          launchConfetti();
+        } else {
+          alert("❌ Failed to add product. Please try again.");
+        }
+      } catch (err) {
+        console.error("Error:", err);
+        alert("❌ Something went wrong.");
+      }
+    });
+
+    function closeSuccess() {
+      document.getElementById("successPopup").classList.remove("show");
+      window.location.href = "buyers.html"; // ✅ redirect after popup
+    }
+
+    // 🎉 Confetti animation
+    function launchConfetti() {
+      const duration = 2 * 1000;
+      const end = Date.now() + duration;
+      (function frame() {
+        confetti({ particleCount: 5, spread: 70, origin: { y: 0.6 } });
+        if (Date.now() < end) { requestAnimationFrame(frame); }
+      })();
+    }
+  </script>
+</body>
+</html>

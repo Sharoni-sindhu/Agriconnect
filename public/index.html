@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>AgriConnect - Fresh From Farms</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8fdf6;
+      color: #2c3e1e;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e1e9dd;
+      box-shadow: 0 2px 6px rgba(50, 78, 33, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #34783a;
+    }
+
+    .logo img {
+      width: 38px;
+      height: auto;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #365d2a;
+      padding: 4px 0;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #236636;
+    }
+
+    nav a.active::after,
+    nav a:hover::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 3px;
+      background: #f39c12;
+      border-radius: 3px;
+    }
+
+    .btn-signin {
+      background: #34783a;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 22px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .btn-signin:hover {
+      background: #255523;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      margin: 28px auto;
+      border-radius: 14px;
+      height: 500px;
+      background: url("hero.jpg") center/cover no-repeat;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(50, 78, 33, 0.25);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45));
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: #fff;
+      max-width: 700px;
+      padding: 0 20px;
+    }
+
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 26px;
+      color: #f1f1f1;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      border: none;
+      border-radius: 10px;
+      padding: 14px 34px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #f39c12;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(243, 156, 18, 0.5);
+    }
+
+    .btn-primary:hover {
+      background: #d9820f;
+    }
+
+    .btn-secondary {
+      background: #34783a;
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: #255423;
+    }
+
+    /* Sections */
+    section {
+      margin: 70px auto;
+    }
+
+    /* How It Works */
+    .steps {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .step {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      flex: 1 1 220px;
+      max-width: 260px;
+      box-shadow: 0 6px 20px rgba(40, 70, 30, 0.12);
+      transition: transform 0.3s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-5px);
+    }
+
+    .step img {
+      width: 60px;
+      margin-bottom: 14px;
+    }
+
+    .step h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #2f6033;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      text-align: center;
+    }
+
+    .testimonial-cards {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      padding: 24px;
+      border-radius: 14px;
+      max-width: 320px;
+      box-shadow: 0 6px 20px rgba(30, 60, 20, 0.15);
+      transition: 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 10px 28px rgba(30, 60, 20, 0.25);
+    }
+
+    .testimonial-card p {
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+      color: #46573e;
+    }
+
+    .testimonial-card h4 {
+      font-weight: 600;
+      color: #2f6033;
+    }
+
+    /* Stats */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .stat {
+      flex: 1 1 200px;
+    }
+
+    .stat h3 {
+      font-size: 2rem;
+      color: #f39c12;
+    }
+
+    .stat p {
+      color: #365d2a;
+    }
+
+    /* Footer */
+    footer {
+      background: #2f6033;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .newsletter input {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      margin-right: 8px;
+      width: 220px;
+    }
+
+    .newsletter button {
+      background: #f39c12;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .social-icons img {
+      width: 28px;
+      margin: 0 8px;
+      filter: brightness(90%);
+      transition: 0.3s;
+    }
+
+    .social-icons img:hover {
+      filter: brightness(120%);
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .steps {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-inner container">
+      <a href="#" class="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/2545/2545792.png" alt="Logo" />
+        AgriConnect
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="howitworks.html" >How It Works</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+      <a href="signup.html" class="btn-signin">Sign In / Register</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Fresh From Our Farms To Your Homes</h1>
+      <p class="hero-subtitle">Connecting farmers and consumers through fresh, traceable, and sustainable produce.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="window.location.href='shop.html'">Shop Now</button>
+
+        <button class="btn-secondary" onclick="window.location.href='signup.html'">Join as Farmer</button></div>
+    </div>
+  </section>
+  <!-- CTA Section -->
+  <div class="cta">
+    <h3>🌱 Want to join our community?</h3>
+    <p>Get access to fresh produce, trusted farmers, and a growing marketplace.</p>
+    <a href="signup.html" class="btn">Let’s Get Started →</a>
+  </div>
+</section>
+
+<style>
+/* Section Title */
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  color: #2f6033;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #46573e;
+  font-size: 16px;
+  margin-bottom: 30px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  width: 220px; /* smaller width */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  border-radius: 10px;
+  margin-bottom: 12px;
+  height: 140px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #2f6033;
+}
+
+.card .price {
+  font-weight: bold;
+  color: #f39c12;
+  margin-bottom: 6px;
+}
+
+.card .desc {
+  font-size: 14px;
+  color: #555;
+}
+
+/* CTA Section */
+.cta {
+  margin-top: 50px;
+  padding: 30px;
+  background: #cf730a;
+  color: white;
+  border-radius: 12px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.cta h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.cta p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.cta .btn {
+  background: white;
+  color: #cf730a;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.cta .btn:hover {
+  background: #1976d2;
+  color: white;
+}
+</style>
+
+
+
+  <!-- Testimonials --> 
+  <section class="testimonials container" style="margin-top: 50px;">
+    <h2 style="color:#2f6033;">What People Say</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial-card">
+        <p>“AgriConnect helps me get fresh veggies straight from farmers. I trust the quality and love supporting locals.”</p>
+        <h4>– Priya, Hyderabad</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>“As a farmer, I now sell directly to buyers and earn better margins. Great platform!”</p>
+        <h4>– Ramesh, Farmer</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>“This platform makes sustainable shopping so easy. Highly recommend!”</p>
+        <h4>– Anita, Bengaluru</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats container">
+    <div class="stat">
+      <h3>500+</h3>
+      <p>Farmers Registered</p>
+    </div>
+    <div class="stat">
+      <h3>10K+</h3>
+      <p>Happy Customers</p>
+    </div>
+    <div class="stat">
+      <h3>100%</h3>
+      <p>Organic Certified</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-top">
+      <div>
+        <h3>AgriConnect</h3>
+        <p>Bringing farmers and consumers closer together.</p>
+      </div>
+      
+      <div class="social-icons">
+        <a href="https://www.facebook.com/"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" /></a>
+        <a href="https://x.com/?lang=en"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" /></a>
+        <a href="https://www.instagram.com/"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" /></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 AgriConnect. All Rights Reserved.
+    </div>
+  </footer>
+</body>
+</html>

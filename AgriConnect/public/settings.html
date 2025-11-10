@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Settings | Farmers Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* SAME CSS AS farmers.html */
+  :root {
+    --primary: #104c22;
+    --secondary: #207935;
+    --accent: #f7fafc;
+    --surface: #fff;
+    --gray: #e6eaf1;
+    --shadow: 0 2px 12px rgba(34, 138, 30, 0.05);
+  }
+  * {box-sizing:border-box;margin:0;padding:0;}
+  body {font-family:'Poppins',sans-serif; background:var(--accent); color:#222; min-height:100vh; display:flex; transition:0.3s;}
+  body.dark-mode {background:#131a1d;color:#cfe3d3;}
+  aside.sidebar {width:250px; background:var(--primary); color:#fff; display:flex; flex-direction:column; justify-content:space-between; padding:24px;}
+  aside.sidebar h2 {margin-bottom:24px;}
+  aside.sidebar a {display:block; padding:12px 0; color:#fff; text-decoration:none; font-weight:500; margin-bottom:6px; border-radius:6px; transition:0.2s;}
+  aside.sidebar a:hover, aside.sidebar a.active {background:var(--secondary);}
+  header {background:var(--surface); padding:16px 24px; display:flex; justify-content:space-between; align-items:center; box-shadow:var(--shadow);}
+  header .top-controls button {margin-left:10px;padding:6px 12px;border-radius:6px;border:none;cursor:pointer;}
+  main {flex:1;padding:28px;}
+  .settings-card {background:var(--surface); padding:24px; border-radius:14px; box-shadow:var(--shadow); max-width:600px;}
+  .settings-card h2 {margin-bottom:16px;}
+  .settings-card div {margin-bottom:10px; font-size:1em;}
+  .settings-card button {padding:8px 16px; background:var(--primary); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:500;}
+  .settings-card button:hover {background:var(--secondary);}
+  @media(max-width:900px){aside.sidebar{width:60px;} main{margin-left:70px;}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div>
+    <h2>🌾 Green Fields</h2>
+    <nav>
+      <a href="settings.html" class="active">Settings</a>
+      <a href="farmers.html">Back to Dashboard</a>
+      
+      
+    </nav>
+  </div>
+  <div><small>&copy; 2025 Green Valley Farm</small></div>
+</aside>
+<div style="flex:1;">
+<header>
+  <div>Settings</div>
+  <div class="top-controls">
+    <span>Welcome, Green Valley Farm</span>
+    <button id="switchDark">🌙</button>
+    <button onclick="alert('Logout!'); window.location.href='login.html'">Logout</button>
+  </div>
+</header>
+<main>
+<h2>Farm Settings</h2>
+<div class="settings-card">
+  <div>🌱 Farm Name: Green Valley Farm</div>
+  <div>📍 Address: 1234 Farm Road, California, USA</div>
+  <div>📞 Contact: +1 (555) 123-4567</div>
+  <div>✉️ Email: contact@greenvalleyfarm.com</div>
+  <div>💻 Dashboard Theme: <span id="themeStatus">Light</span></div>
+  <div>🔔 Notifications: Enabled</div>
+  <div>📝 About Farm: Produces fresh organic vegetables with sustainable farming methods.</div>
+  <button onclick="alert('Settings are updated!')">Save Settings</button>
+</div>
+</main>
+</div>
+<script>
+document.getElementById('switchDark').onclick = function(){
+  document.body.classList.toggle('dark-mode');
+  localStorage.setItem('dark', document.body.classList.contains('dark-mode'));
+  document.getElementById('themeStatus').innerText = document.body.classList.contains('dark-mode')?'Dark':'Light';
+}
+if(localStorage.getItem('dark')==='true'){document.body.classList.add('dark-mode'); document.getElementById('themeStatus').innerText='Dark';}
+</script>
+</body>
+</html>

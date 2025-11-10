@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenFields - Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <div class="login-container">
+    <h1>GreenFields Agriculture 🌱</h1>
+
+    <!-- Login Form -->
+    <form class="login-form">
+      <div class="form-group">
+        <input type="text" name="username" placeholder="👤 Username" required>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" placeholder="🔑 Password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+
+    <p class="redirect">Forgot your password? <a href="forgot.html">Recover here</a></p>
+    <p class="redirect">Don’t have an account? <a href="signup.html">Sign up here</a></p>
+    <p class="redirect"><a href="index.html">⬅️ Back to Home</a></p>
+  </div>
+
+  <script>
+    // 🔐 Login form handler
+    document.querySelector(".login-form").addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch("/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+          // ✅ Save username in localStorage
+          const username = data.username.trim();
+          localStorage.setItem("loggedInUser", username);
+
+          // ✅ Redirect based on role
+          if (result.role === "buyer") {
+            window.location.href = "consumers.html";
+          } else if (result.role === "seller") {
+            window.location.href = "farmers.html";
+          } else {
+            window.location.href = "index.html"; // fallback
+          }
+        } else {
+          alert(result.message);
+        }
+      } catch (err) {
+        console.error("❌ Login error:", err);
+        alert("Server error. Please try again.");
+      }
+    });
+  </script>
+</body>
+
+</html>
